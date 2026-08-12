@@ -1,27 +1,16 @@
 /* =========================================================
-   REWEAR — MAIN JAVASCRIPT
-   SIERA Showcase 2026
-========================================================= */
-
-
-/* =========================================================
 01. PAGE LOADER
 ========================================================= */
 
 window.addEventListener("load", () => {
+  setTimeout(() => {
+    const loader = document.getElementById("loader");
 
-    setTimeout(() => {
-
-        const loader = document.getElementById("loader");
-
-        if (loader) {
-            loader.classList.add("hidden");
-        }
-
-    }, 900);
-
+    if (loader) {
+      loader.classList.add("hidden");
+    }
+  }, 900);
 });
-
 
 /* =========================================================
 02. NAVBAR
@@ -30,424 +19,337 @@ window.addEventListener("load", () => {
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
+  if (!navbar) {
+    return;
+  }
 
-    if (!navbar) {
-        return;
-    }
-
-    if (window.scrollY > 40) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
+  if (window.scrollY > 40) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
 });
-
 
 /* =========================================================
 03. SMOOTH SCROLL
 ========================================================= */
 
 function scrollToSection(id) {
+  const section = document.getElementById(id);
 
-    const section = document.getElementById(id);
-
-    if (section) {
-
-        section.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
 }
-
 
 /* =========================================================
 04. SCROLL REVEAL
 ========================================================= */
 
 const revealElements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right"
+  ".reveal, .reveal-left, .reveal-right",
 );
 
 const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
 
-    (entries) => {
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
 
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                revealObserver.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.12
-    }
-
+  {
+    threshold: 0.12,
+  },
 );
 
 revealElements.forEach((element) => {
-    revealObserver.observe(element);
+  revealObserver.observe(element);
 });
-
 
 /* =========================================================
    ONE PIECE. MANY WAYS.
    SIERRA SHOWCASE
 ========================================================= */
 
-
 /* =========================================
    CLOTHING DATA
 ========================================= */
 
 const clothingData = {
-
-    /* =====================================
+  /* =====================================
       SHIRT
     ===================================== */
 
-    shirt: {
+  shirt: {
+    name: "THE SHIRT",
 
-        name: "THE SHIRT",
+    styles: {
+      minimal: {
+        label: "MINIMAL",
 
-        styles: {
+        title: "Effortless Minimal",
 
-            minimal: {
-                label: "MINIMAL",
+        description:
+          "Keep the silhouette clean with tailored trousers and simple accessories. Perfect for a polished everyday look.",
 
-                title: "Effortless Minimal",
+        tip: "Keep the colours neutral and let the silhouette do the talking.",
 
-                description:
-                    "Keep the silhouette clean with tailored trousers and simple accessories. Perfect for a polished everyday look.",
+        image: "images/white-shirt-minimal.jpg",
+      },
 
-                tip:
-                    "Keep the colours neutral and let the silhouette do the talking.",
+      street: {
+        label: "STREET",
 
-                image:
-                    "images/white-shirt-minimal.jpg"
-            },
+        title: "Off-Duty Street",
 
-            street: {
-                label: "STREET",
+        description:
+          "Give the classic shirt an edge with relaxed denim, sneakers and statement accessories.",
 
-                title: "Off-Duty Street",
+        tip: "Don't be afraid of oversized proportions. Balance the volume with confident accessories.",
 
-                description:
-                    "Give the classic shirt an edge with relaxed denim, sneakers and statement accessories.",
+        image: "images/white-shirt-street.jpg",
+      },
 
-                tip:
-                    "Don't be afraid of oversized proportions. Balance the volume with confident accessories.",
+      feminine: {
+        label: "FEMININE",
 
-                image:
-                    "images/white-shirt-street.jpg"
-            },
+        title: "Soft & Feminine",
 
-            feminine: {
-                label: "FEMININE",
+        description:
+          "Balance the structured shirt with a fitted skirt, delicate accessories and softer details.",
 
-                title: "Soft & Feminine",
+        tip: "Mix structured pieces with softer textures to create contrast.",
 
-                description:
-                    "Balance the structured shirt with a fitted skirt, delicate accessories and softer details.",
+        image: "images/white-shirt-feminine.jpg",
+      },
 
-                tip:
-                    "Mix structured pieces with softer textures to create contrast.",
+      smart: {
+        label: "SMART",
 
-                image:
-                    "images/white-shirt-feminine.jpg"
-            },
+        title: "Polished & Smart",
 
-            smart: {
-                label: "SMART",
+        description:
+          "Pair it with tailored trousers and structured layers for a sophisticated look that works anywhere.",
 
-                title: "Polished & Smart",
+        tip: "Add one structured piece to instantly make a relaxed shirt feel more refined.",
 
-                description:
-                    "Pair it with tailored trousers and structured layers for a sophisticated look that works anywhere.",
-
-                tip:
-                    "Add one structured piece to instantly make a relaxed shirt feel more refined.",
-
-                image:
-                    "images/white-shirt-smart.jpg"
-            }
-
-        }
-
+        image: "images/white-shirt-smart.jpg",
+      },
     },
+  },
 
-
-    /* =====================================
+  /* =====================================
        BASIC TEE
     ===================================== */
 
-    tee: {
+  tee: {
+    name: "THE BASIC TEE",
 
-        name: "THE BASIC TEE",
+    styles: {
+      casual: {
+        label: "CASUAL",
 
-        styles: {
+        title: "Everyday Ease",
 
-            casual: {
-                label: "CASUAL",
+        description:
+          "Keep it effortless with relaxed denim, sneakers and minimal accessories. Simple, comfortable and easy to repeat.",
 
-                title: "Everyday Ease",
+        tip: "A clean silhouette and one good accessory can make a basic outfit feel intentional.",
 
-                description:
-                    "Keep it effortless with relaxed denim, sneakers and minimal accessories. Simple, comfortable and easy to repeat.",
+        image: "images/basic-tee-casual.jpg",
+      },
 
-                tip:
-                    "A clean silhouette and one good accessory can make a basic outfit feel intentional.",
+      street: {
+        label: "STREET",
 
-                image:
-                    "images/basic-tee-casual.jpg"
-            },
+        title: "Urban Energy",
 
-            street: {
-                label: "STREET",
+        description:
+          "Give the everyday tee more attitude with baggy denim, chunky sneakers and statement accessories.",
 
-                title: "Urban Energy",
+        tip: "Play with oversized proportions to give a basic piece more personality.",
 
-                description:
-                    "Give the everyday tee more attitude with baggy denim, chunky sneakers and statement accessories.",
+        image: "images/basic-tee-street.jpg",
+      },
 
-                tip:
-                    "Play with oversized proportions to give a basic piece more personality.",
+      layered: {
+        label: "LAYERED",
 
-                image:
-                    "images/basic-tee-street.jpg"
-            },
+        title: "Built in Layers",
 
-            layered: {
-                label: "LAYERED",
+        description:
+          "Layer your tee underneath an open shirt, jacket or blazer to create depth without making the outfit complicated.",
 
-                title: "Built in Layers",
+        tip: "Let the basic tee act as your foundation and build the outfit around it.",
 
-                description:
-                    "Layer your tee underneath an open shirt, jacket or blazer to create depth without making the outfit complicated.",
+        image: "images/basic-tee-layered.jpg",
+      },
 
-                tip:
-                    "Let the basic tee act as your foundation and build the outfit around it.",
+      chic: {
+        label: "CHIC",
 
-                image:
-                    "images/basic-tee-layered.jpg"
-            },
+        title: "Simple, Elevated",
 
-            chic: {
-                label: "CHIC",
+        description:
+          "Pair a clean basic tee with tailored trousers, subtle jewellery and refined accessories for an effortless polished look.",
 
-                title: "Simple, Elevated",
+        tip: "The secret to making basics look expensive is structure, fit and thoughtful accessories.",
 
-                description:
-                    "Pair a clean basic tee with tailored trousers, subtle jewellery and refined accessories for an effortless polished look.",
-
-                tip:
-                    "The secret to making basics look expensive is structure, fit and thoughtful accessories.",
-
-                image:
-                    "images/basic-tee-chic.jpg"
-            }
-
-        }
-
+        image: "images/basic-tee-chic.jpg",
+      },
     },
+  },
 
-
-    /* =====================================
+  /* =====================================
    TANK TOP
 ===================================== */
 
-tank: {
-
+  tank: {
     name: "THE TANK TOP",
 
     styles: {
+      casual: {
+        label: "CASUAL",
 
-        casual: {
-            label: "CASUAL",
+        title: "Easy & Effortless",
 
-            title: "Easy & Effortless",
+        description:
+          "Keep the tank top relaxed with straight-leg denim, simple sneakers and minimal accessories for an easy everyday look.",
 
-            description:
-                "Keep the tank top relaxed with straight-leg denim, simple sneakers and minimal accessories for an easy everyday look.",
+        tip: "Keep the rest of the outfit simple so the tank top feels effortless.",
 
-            tip:
-                "Keep the rest of the outfit simple so the tank top feels effortless.",
+        image: "images/tank-casual.jpg",
+      },
 
-            image:
-                "images/tank-casual.jpg"
-        },
+      summer: {
+        label: "SUMMER",
 
+        title: "Summer Ease",
 
-        summer: {
-            label: "SUMMER",
+        description:
+          "Pair the tank top with lightweight trousers or a flowing skirt, sandals and delicate accessories for a fresh summer look.",
 
-            title: "Summer Ease",
+        tip: "Light fabrics and simple accessories keep the look fresh and breathable.",
 
-            description:
-                "Pair the tank top with lightweight trousers or a flowing skirt, sandals and delicate accessories for a fresh summer look.",
+        image: "images/tank-summer.jpg",
+      },
 
-            tip:
-                "Light fabrics and simple accessories keep the look fresh and breathable.",
+      sporty: {
+        label: "SPORTY",
 
-            image:
-                "images/tank-summer.jpg"
-        },
+        title: "Sporty Energy",
 
+        description:
+          "Give the tank top an athletic edge with relaxed joggers, sneakers and practical accessories for a confident sporty look.",
 
-        sporty: {
-            label: "SPORTY",
+        tip: "Mix sporty pieces with clean basics to keep the outfit stylish rather than overly athletic.",
 
-            title: "Sporty Energy",
+        image: "images/tank-sporty.jpg",
+      },
 
-            description:
-                "Give the tank top an athletic edge with relaxed joggers, sneakers and practical accessories for a confident sporty look.",
+      layered: {
+        label: "LAYERED",
 
-            tip:
-                "Mix sporty pieces with clean basics to keep the outfit stylish rather than overly athletic.",
+        title: "Layered & Styled",
 
-            image:
-                "images/tank-sporty.jpg"
-        },
+        description:
+          "Use the tank top as a foundation underneath an open shirt, lightweight jacket or cardigan to create a more complete outfit.",
 
+        tip: "Let the tank top act as your base and use the outer layer to add personality.",
 
-        layered: {
-            label: "LAYERED",
+        image: "images/tank-layered.jpg",
+      },
+    },
+  },
 
-            title: "Layered & Styled",
-
-            description:
-                "Use the tank top as a foundation underneath an open shirt, lightweight jacket or cardigan to create a more complete outfit.",
-
-            tip:
-                "Let the tank top act as your base and use the outer layer to add personality.",
-
-            image:
-                "images/tank-layered.jpg"
-        }
-
-    }
-
-},
-
-
-/* =====================================
+  /* =====================================
    TIE NECK BLOUSE
 ===================================== */
 
-blouse: {
-
+  blouse: {
     name: "THE TIE NECK BLOUSE",
 
     styles: {
+      office: {
+        label: "OFFICE",
 
-        office: {
-            label: "OFFICE",
+        title: "Polished & Professional",
 
-            title: "Polished & Professional",
+        description:
+          "Pair the tie neck blouse with tailored trousers, structured accessories and simple heels for a polished office-ready look.",
 
-            description:
-                "Pair the tie neck blouse with tailored trousers, structured accessories and simple heels for a polished office-ready look.",
+        tip: "Keep the rest of the outfit structured and let the tie-neck detail be the focus.",
 
-            tip:
-                "Keep the rest of the outfit structured and let the tie-neck detail be the focus.",
+        image: "images/blouse-office.jpg",
+      },
 
-            image:
-                "images/blouse-office.jpg"
-        },
+      feminine: {
+        label: "FEMININE",
 
+        title: "Soft & Refined",
 
-        feminine: {
-            label: "FEMININE",
+        description:
+          "Style the blouse with a flowing skirt, delicate jewellery and elegant accessories for a soft feminine look.",
 
-            title: "Soft & Refined",
+        tip: "Choose delicate details and softer silhouettes to highlight the feminine character of the blouse.",
 
-            description:
-                "Style the blouse with a flowing skirt, delicate jewellery and elegant accessories for a soft feminine look.",
+        image: "images/blouse-feminine.jpg",
+      },
 
-            tip:
-                "Choose delicate details and softer silhouettes to highlight the feminine character of the blouse.",
+      casual: {
+        label: "CASUAL",
 
-            image:
-                "images/blouse-feminine.jpg"
-        },
+        title: "Relaxed Elegance",
 
+        description:
+          "Dress the blouse down with straight-leg denim, simple flats and understated accessories for an effortless everyday outfit.",
 
-        casual: {
-            label: "CASUAL",
+        tip: "Pair the polished blouse with relaxed pieces to create an effortless contrast.",
 
-            title: "Relaxed Elegance",
+        image: "images/blouse-casual.jpg",
+      },
 
-            description:
-                "Dress the blouse down with straight-leg denim, simple flats and understated accessories for an effortless everyday outfit.",
+      evening: {
+        label: "EVENING",
 
-            tip:
-                "Pair the polished blouse with relaxed pieces to create an effortless contrast.",
+        title: "Elegant After Dark",
 
-            image:
-                "images/blouse-casual.jpg"
-        },
+        description:
+          "Take the tie neck blouse into the evening with tailored trousers or a sleek skirt, refined jewellery and sophisticated heels.",
 
+        tip: "Keep the silhouette clean and add one elegant accessory to make the look feel evening-ready.",
 
-        evening: {
-            label: "EVENING",
-
-            title: "Elegant After Dark",
-
-            description:
-                "Take the tie neck blouse into the evening with tailored trousers or a sleek skirt, refined jewellery and sophisticated heels.",
-
-            tip:
-                "Keep the silhouette clean and add one elegant accessory to make the look feel evening-ready.",
-
-            image:
-                "images/blouse-evening.jpg"
-        }
-
-    }
-
-}
-
+        image: "images/blouse-evening.jpg",
+      },
+    },
+  },
 };
-
 
 /* =========================================================
    GET HTML ELEMENTS
 ========================================================= */
 
-const pieceButtons =
-    document.querySelectorAll(".piece-button");
+const pieceButtons = document.querySelectorAll(".piece-button");
 
-const styleTabsContainer =
-    document.getElementById("styleTabs");
+const styleTabsContainer = document.getElementById("styleTabs");
 
-const styleImage =
-    document.getElementById("styleImage");
+const styleImage = document.getElementById("styleImage");
 
-const imageLabel =
-    document.getElementById("imageLabel");
+const imageLabel = document.getElementById("imageLabel");
 
-const styleTitle =
-    document.getElementById("styleTitle");
+const styleTitle = document.getElementById("styleTitle");
 
-const styleDescription =
-    document.getElementById("styleDescription");
+const styleDescription = document.getElementById("styleDescription");
 
-const styleTip =
-    document.getElementById("styleTip");
+const styleTip = document.getElementById("styleTip");
 
-const styleInfo =
-    document.getElementById("styleInfo");
-
+const styleInfo = document.getElementById("styleInfo");
 
 /* =========================================================
    CURRENT SELECTION
@@ -457,283 +359,193 @@ let currentPiece = "shirt";
 
 let currentStyle = "minimal";
 
-
 /* =========================================================
    CHANGE CLOTHING PIECE
 ========================================================= */
 
 function changePiece(piece) {
+  if (!clothingData[piece]) {
+    return;
+  }
 
-    if (!clothingData[piece]) {
-        return;
-    }
+  currentPiece = piece;
 
-    currentPiece = piece;
+  const clothing = clothingData[piece];
 
-    const clothing = clothingData[piece];
+  const firstStyle = Object.keys(clothing.styles)[0];
 
-    const firstStyle =
-        Object.keys(clothing.styles)[0];
+  currentStyle = firstStyle;
 
-    currentStyle = firstStyle;
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        Change active piece button
     ------------------------------------- */
 
-    pieceButtons.forEach((button) => {
+  pieceButtons.forEach((button) => {
+    button.classList.remove("active");
 
-        button.classList.remove("active");
+    if (button.dataset.piece === piece) {
+      button.classList.add("active");
+    }
+  });
 
-        if (button.dataset.piece === piece) {
-            button.classList.add("active");
-        }
-
-    });
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        Create new style tabs
     ------------------------------------- */
 
-    if (!styleTabsContainer) {
-        return;
+  if (!styleTabsContainer) {
+    return;
+  }
+
+  styleTabsContainer.innerHTML = "";
+
+  Object.keys(clothing.styles).forEach((style) => {
+    const styleData = clothing.styles[style];
+
+    const button = document.createElement("button");
+
+    button.classList.add("style-tab");
+
+    if (style === firstStyle) {
+      button.classList.add("active");
     }
 
-    styleTabsContainer.innerHTML = "";
+    button.dataset.style = style;
 
+    button.textContent = styleData.label;
 
-    Object.keys(clothing.styles).forEach((style) => {
+    styleTabsContainer.appendChild(button);
+  });
 
-        const styleData =
-            clothing.styles[style];
-
-        const button =
-            document.createElement("button");
-
-        button.classList.add("style-tab");
-
-        if (style === firstStyle) {
-            button.classList.add("active");
-        }
-
-        button.dataset.style = style;
-
-        button.textContent =
-            styleData.label;
-
-        styleTabsContainer.appendChild(button);
-
-    });
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        Add click events to new tabs
     ------------------------------------- */
 
-    const newTabs =
-        styleTabsContainer.querySelectorAll(
-            ".style-tab"
-        );
+  const newTabs = styleTabsContainer.querySelectorAll(".style-tab");
 
-
-    newTabs.forEach((tab) => {
-
-        tab.addEventListener("click", () => {
-
-            changeStyle(
-                piece,
-                tab.dataset.style
-            );
-
-        });
-
+  newTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      changeStyle(piece, tab.dataset.style);
     });
+  });
 
-
-    /* -------------------------------------
+  /* -------------------------------------
        Show first style
     ------------------------------------- */
 
-    changeStyle(
-        piece,
-        firstStyle,
-        false
-    );
-
+  changeStyle(piece, firstStyle, false);
 }
-
 
 /* =========================================================
    CHANGE STYLE
 ========================================================= */
 
-function changeStyle(
-    piece,
-    style,
-    animate = true
-) {
+function changeStyle(piece, style, animate = true) {
+  if (!clothingData[piece] || !clothingData[piece].styles[style]) {
+    return;
+  }
 
-    if (
-        !clothingData[piece] ||
-        !clothingData[piece].styles[style]
-    ) {
-        return;
-    }
+  const data = clothingData[piece].styles[style];
 
-    const data =
-        clothingData[piece].styles[style];
+  currentStyle = style;
 
-    currentStyle = style;
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        Active styling tab
     ------------------------------------- */
 
-    const tabs =
-        styleTabsContainer.querySelectorAll(
-            ".style-tab"
-        );
+  const tabs = styleTabsContainer.querySelectorAll(".style-tab");
 
+  tabs.forEach((tab) => {
+    tab.classList.remove("active");
 
-    tabs.forEach((tab) => {
+    if (tab.dataset.style === style) {
+      tab.classList.add("active");
+    }
+  });
 
-        tab.classList.remove("active");
-
-        if (tab.dataset.style === style) {
-            tab.classList.add("active");
-        }
-
-    });
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        IMAGE ANIMATION
     ------------------------------------- */
 
-    if (styleImage) {
+  if (styleImage) {
+    if (animate) {
+      styleImage.classList.add("changing");
 
-        if (animate) {
+      setTimeout(() => {
+        styleImage.src = data.image;
 
-            styleImage.classList.add("changing");
+        styleImage.alt = `${clothingData[piece].name} styled ${data.label.toLowerCase()}`;
 
-            setTimeout(() => {
+        styleImage.classList.remove("changing");
+      }, 250);
+    } else {
+      styleImage.src = data.image;
 
-                styleImage.src =
-                    data.image;
-
-                styleImage.alt =
-                    `${clothingData[piece].name} styled ${data.label.toLowerCase()}`;
-
-                styleImage.classList.remove("changing");
-
-            }, 250);
-
-        } else {
-
-            styleImage.src =
-                data.image;
-
-            styleImage.alt =
-                `${clothingData[piece].name} styled ${data.label.toLowerCase()}`;
-
-        }
-
+      styleImage.alt = `${clothingData[piece].name} styled ${data.label.toLowerCase()}`;
     }
+  }
 
-
-    /* -------------------------------------
+  /* -------------------------------------
    IMAGE LABEL
 ------------------------------------- */
 
-imageLabel.textContent =
-    clothingData[piece].name;
+  imageLabel.textContent = clothingData[piece].name;
 
-
-/* -------------------------------------
+  /* -------------------------------------
    PIECE NAME
 ------------------------------------- */
 
-const pieceName =
-    document.querySelector(".piece-name");
+  const pieceName = document.querySelector(".piece-name");
 
-if (pieceName) {
-    pieceName.textContent =
-        clothingData[piece].name;
-}
+  if (pieceName) {
+    pieceName.textContent = clothingData[piece].name;
+  }
 
-    /* -------------------------------------
+  /* -------------------------------------
        TEXT ANIMATION
     ------------------------------------- */
 
-    if (styleInfo) {
+  if (styleInfo) {
+    styleInfo.style.animation = "none";
 
-        styleInfo.style.animation = "none";
+    styleInfo.offsetHeight;
 
-        styleInfo.offsetHeight;
+    styleInfo.style.animation = "styleTextIn 0.45s ease";
+  }
 
-        styleInfo.style.animation =
-            "styleTextIn 0.45s ease";
-
-    }
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        UPDATE TEXT
     ------------------------------------- */
 
-    if (styleTitle) {
+  if (styleTitle) {
+    styleTitle.textContent = data.title;
+  }
 
-        styleTitle.textContent =
-            data.title;
+  if (styleDescription) {
+    styleDescription.textContent = data.description;
+  }
 
-    }
-
-
-    if (styleDescription) {
-
-        styleDescription.textContent =
-            data.description;
-
-    }
-
-
-    if (styleTip) {
-
-        styleTip.textContent =
-            data.tip;
-
-    }
-
+  if (styleTip) {
+    styleTip.textContent = data.tip;
+  }
 }
-
 
 /* =========================================================
    PIECE BUTTON EVENTS
 ========================================================= */
 
 pieceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const piece = button.dataset.piece;
 
-    button.addEventListener("click", () => {
-
-        const piece =
-            button.dataset.piece;
-
-        changePiece(piece);
-
-    });
-
+    changePiece(piece);
+  });
 });
-
 
 /* =========================================================
    INITIALISE SECTION
 ========================================================= */
 
 changePiece("shirt");
-
 
 /* =========================================================
 06. STYLE ME ENGINE
@@ -745,487 +557,266 @@ let selectedOccasion = "";
 
 let selectedEnergy = "";
 
-
 /* =========================================================
 STEP 1 — PIECE
 ========================================================= */
 
-function selectPiece(
-    piece,
-    button
-) {
+function selectPiece(piece, button) {
+  selectedPiece = piece;
 
-    selectedPiece = piece;
+  selectStyleButton(button);
 
-    selectStyleButton(button);
-
-    setTimeout(() => {
-
-        showStyleStep(2);
-
-    }, 350);
-
+  setTimeout(() => {
+    showStyleStep(2);
+  }, 350);
 }
-
 
 /* =========================================================
 STEP 2 — OCCASION
 ========================================================= */
 
-function selectOccasion(
-    occasion,
-    button
-) {
+function selectOccasion(occasion, button) {
+  selectedOccasion = occasion;
 
-    selectedOccasion = occasion;
+  selectStyleButton(button);
 
-    selectStyleButton(button);
-
-    setTimeout(() => {
-
-        showStyleStep(3);
-
-    }, 350);
-
+  setTimeout(() => {
+    showStyleStep(3);
+  }, 350);
 }
-
 
 /* =========================================================
 STEP 3 — ENERGY
 ========================================================= */
 
-function generateLook(
-    energy,
-    button
-) {
+function generateLook(energy, button) {
+  selectedEnergy = energy;
 
-    selectedEnergy = energy;
+  selectStyleButton(button);
 
-    selectStyleButton(button);
-
-    setTimeout(() => {
-
-        showGenerating();
-
-    }, 350);
-
+  setTimeout(() => {
+    showGenerating();
+  }, 350);
 }
-
 
 /* =========================================================
 SELECT BUTTON
 ========================================================= */
 
 function selectStyleButton(button) {
+  if (!button) {
+    return;
+  }
 
-    if (!button) {
-        return;
-    }
+  const buttons = button.parentElement.querySelectorAll(".style-option");
 
-    const buttons =
-        button.parentElement.querySelectorAll(
-            ".style-option"
-        );
+  buttons.forEach((item) => {
+    item.classList.remove("selected");
+  });
 
-    buttons.forEach((item) => {
-
-        item.classList.remove("selected");
-
-    });
-
-    button.classList.add("selected");
-
+  button.classList.add("selected");
 }
-
 
 /* =========================================================
 SHOW STYLE STEP
 ========================================================= */
 
 function showStyleStep(step) {
+  document.querySelectorAll(".style-step").forEach((item) => {
+    item.classList.remove("active");
+  });
 
-    document
-        .querySelectorAll(".style-step")
-        .forEach((item) => {
+  const currentStep = document.getElementById(`styleStep${step}`);
 
-            item.classList.remove("active");
+  if (currentStep) {
+    currentStep.classList.add("active");
+  }
 
-        });
+  document.querySelectorAll(".progress-step").forEach((item) => {
+    item.classList.remove("active");
+  });
 
+  const progress = document.getElementById(`progress${step}`);
 
-    const currentStep =
-        document.getElementById(
-            `styleStep${step}`
-        );
-
-
-    if (currentStep) {
-
-        currentStep.classList.add("active");
-
-    }
-
-
-    document
-        .querySelectorAll(".progress-step")
-        .forEach((item) => {
-
-            item.classList.remove("active");
-
-        });
-
-
-    const progress =
-        document.getElementById(
-            `progress${step}`
-        );
-
-
-    if (progress) {
-
-        progress.classList.add("active");
-
-    }
-
+  if (progress) {
+    progress.classList.add("active");
+  }
 }
-
 
 /* =========================================================
 GENERATING SCREEN
 ========================================================= */
 
 function showGenerating() {
+  document.querySelectorAll(".style-step").forEach((item) => {
+    item.classList.remove("active");
+  });
 
-    document
-        .querySelectorAll(".style-step")
-        .forEach((item) => {
+  const generating = document.getElementById("styleGenerating");
 
-            item.classList.remove("active");
+  if (!generating) {
+    return;
+  }
 
-        });
+  generating.classList.add("active");
 
+  const progress = document.getElementById("generatingBar");
 
-    const generating =
-        document.getElementById(
-            "styleGenerating"
-        );
+  const generationText = document.getElementById("generationText");
 
+  if (!progress) {
+    return;
+  }
 
-    if (!generating) {
-        return;
+  progress.style.width = "0%";
+
+  setTimeout(() => {
+    progress.style.width = "35%";
+  }, 200);
+
+  setTimeout(() => {
+    progress.style.width = "70%";
+
+    if (generationText) {
+      generationText.textContent = "Finding the right combination...";
     }
+  }, 900);
 
+  setTimeout(() => {
+    progress.style.width = "100%";
 
-    generating.classList.add("active");
-
-
-    const progress =
-        document.getElementById(
-            "generatingBar"
-        );
-
-
-    const generationText =
-        document.getElementById(
-            "generationText"
-        );
-
-
-    if (!progress) {
-        return;
+    if (generationText) {
+      generationText.textContent = "Almost there...";
     }
+  }, 1700);
 
-
-    progress.style.width = "0%";
-
-
-    setTimeout(() => {
-
-        progress.style.width = "35%";
-
-    }, 200);
-
-
-    setTimeout(() => {
-
-        progress.style.width = "70%";
-
-
-        if (generationText) {
-
-            generationText.textContent =
-                "Finding the right combination...";
-
-        }
-
-    }, 900);
-
-
-    setTimeout(() => {
-
-        progress.style.width = "100%";
-
-
-        if (generationText) {
-
-            generationText.textContent =
-                "Almost there...";
-
-        }
-
-    }, 1700);
-
-
-    setTimeout(() => {
-
-        createStyleResult();
-
-    }, 2800);
-
+  setTimeout(() => {
+    createStyleResult();
+  }, 2800);
 }
-
 
 /* =========================================================
 CREATE STYLE RESULT
 ========================================================= */
 
 function createStyleResult() {
+  const resultTitle = document.getElementById("resultTitle");
 
-    const resultTitle =
-        document.getElementById(
-            "resultTitle"
-        );
+  const resultDescription = document.getElementById("resultDescription");
 
-    const resultDescription =
-        document.getElementById(
-            "resultDescription"
-        );
+  const resultBase = document.getElementById("resultBase");
 
-    const resultBase =
-        document.getElementById(
-            "resultBase"
-        );
+  const resultOccasion = document.getElementById("resultOccasion");
 
-    const resultOccasion =
-        document.getElementById(
-            "resultOccasion"
-        );
+  const resultEnergy = document.getElementById("resultEnergy");
 
-    const resultEnergy =
-        document.getElementById(
-            "resultEnergy"
-        );
+  const resultImage = document.getElementById("resultImage");
 
-    const resultImage =
-        document.getElementById(
-            "resultImage"
-        );
+  if (!resultTitle || !resultDescription) {
+    return;
+  }
 
+  let title = "The Effortless One";
 
-    if (
-        !resultTitle ||
-        !resultDescription
-    ) {
+  let description =
+    "Clean, confident and easy to wear. Your outfit feels intentional without looking like you tried too hard.";
 
-        return;
+  if (selectedEnergy === "Street") {
+    title = "The Off-Duty Icon";
 
-    }
+    description =
+      "Relaxed proportions, unexpected layers and just enough attitude to make the outfit feel effortless.";
+  }
 
+  if (selectedEnergy === "Feminine") {
+    title = "The Soft Statement";
 
-    let title =
-        "The Effortless One";
+    description =
+      "A softer interpretation with delicate details and balanced proportions that still feel completely modern.";
+  }
 
-    let description =
-        "Clean, confident and easy to wear. Your outfit feels intentional without looking like you tried too hard.";
+  if (selectedEnergy === "Bold") {
+    title = "The Rule Breaker";
 
+    description =
+      "You don't dress to blend in. You mix proportions, textures and personality to create something unmistakably yours.";
+  }
 
-    if (selectedEnergy === "Street") {
+  resultTitle.textContent = title;
 
-        title =
-            "The Off-Duty Icon";
+  resultDescription.textContent = description;
 
-        description =
-            "Relaxed proportions, unexpected layers and just enough attitude to make the outfit feel effortless.";
+  if (resultBase) {
+    resultBase.textContent = selectedPiece;
+  }
 
-    }
+  if (resultOccasion) {
+    resultOccasion.textContent = selectedOccasion;
+  }
 
+  if (resultEnergy) {
+    resultEnergy.textContent = selectedEnergy;
+  }
 
-    if (selectedEnergy === "Feminine") {
-
-        title =
-            "The Soft Statement";
-
-        description =
-            "A softer interpretation with delicate details and balanced proportions that still feel completely modern.";
-
-    }
-
-
-    if (selectedEnergy === "Bold") {
-
-        title =
-            "The Rule Breaker";
-
-        description =
-            "You don't dress to blend in. You mix proportions, textures and personality to create something unmistakably yours.";
-
-    }
-
-
-    resultTitle.textContent =
-        title;
-
-    resultDescription.textContent =
-        description;
-
-
-    if (resultBase) {
-
-        resultBase.textContent =
-            selectedPiece;
-
-    }
-
-
-    if (resultOccasion) {
-
-        resultOccasion.textContent =
-            selectedOccasion;
-
-    }
-
-
-    if (resultEnergy) {
-
-        resultEnergy.textContent =
-            selectedEnergy;
-
-    }
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        RESULT IMAGE
     ------------------------------------- */
 
-    if (resultImage) {
-
-        if (
-            selectedOccasion === "Concert" ||
-            selectedEnergy === "Street"
-        ) {
-
-            resultImage.src =
-                "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85";
-
-        }
-
-        else if (
-            selectedEnergy === "Feminine"
-        ) {
-
-            resultImage.src =
-                "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85";
-
-        }
-
-        else {
-
-            resultImage.src =
-                "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85";
-
-        }
-
+  if (resultImage) {
+    if (selectedOccasion === "Concert" || selectedEnergy === "Street") {
+      resultImage.src =
+        "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85";
+    } else if (selectedEnergy === "Feminine") {
+      resultImage.src =
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85";
+    } else {
+      resultImage.src =
+        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85";
     }
+  }
 
+  const generating = document.getElementById("styleGenerating");
 
-    const generating =
-        document.getElementById(
-            "styleGenerating"
-        );
+  const result = document.getElementById("styleResult");
 
-    const result =
-        document.getElementById(
-            "styleResult"
-        );
+  if (generating) {
+    generating.classList.remove("active");
+  }
 
-
-    if (generating) {
-
-        generating.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    if (result) {
-
-        result.classList.add(
-            "active"
-        );
-
-    }
-
+  if (result) {
+    result.classList.add("active");
+  }
 }
-
 
 /* =========================================================
 RESTART STYLE ME
 ========================================================= */
 
 function restartStyle() {
+  selectedPiece = "";
 
-    selectedPiece = "";
+  selectedOccasion = "";
 
-    selectedOccasion = "";
+  selectedEnergy = "";
 
-    selectedEnergy = "";
+  const result = document.getElementById("styleResult");
 
+  const generating = document.getElementById("styleGenerating");
 
-    const result =
-        document.getElementById(
-            "styleResult"
-        );
+  if (result) {
+    result.classList.remove("active");
+  }
 
-    const generating =
-        document.getElementById(
-            "styleGenerating"
-        );
+  if (generating) {
+    generating.classList.remove("active");
+  }
 
+  document.querySelectorAll(".style-option").forEach((button) => {
+    button.classList.remove("selected");
+  });
 
-    if (result) {
-
-        result.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    if (generating) {
-
-        generating.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    document
-        .querySelectorAll(".style-option")
-        .forEach((button) => {
-
-            button.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    showStyleStep(1);
-
+  showStyleStep(1);
 }
-
 
 /* =========================================================
 07. STYLE DNA
@@ -1235,483 +826,240 @@ let dnaSilhouette = "";
 
 let dnaColour = "";
 
-
 /* =========================================================
 OPEN DNA
 ========================================================= */
 
 function openDNA() {
+  const modal = document.getElementById("dnaModal");
 
-    const modal =
-        document.getElementById(
-            "dnaModal"
-        );
+  if (!modal) {
+    return;
+  }
 
+  modal.classList.add("active");
 
-    if (!modal) {
-        return;
-    }
-
-
-    modal.classList.add("active");
-
-    document.body.classList.add(
-        "no-scroll"
-    );
-
+  document.body.classList.add("no-scroll");
 }
-
 
 /* =========================================================
 CLOSE DNA
 ========================================================= */
 
 function closeDNA() {
+  const modal = document.getElementById("dnaModal");
 
-    const modal =
-        document.getElementById(
-            "dnaModal"
-        );
+  if (!modal) {
+    return;
+  }
 
+  modal.classList.remove("active");
 
-    if (!modal) {
-        return;
+  document.body.classList.remove("no-scroll");
+
+  setTimeout(() => {
+    document.querySelectorAll(".dna-modal-step").forEach((step) => {
+      step.classList.remove("active");
+    });
+
+    const firstStep = document.getElementById("dnaStep1");
+
+    if (firstStep) {
+      firstStep.classList.add("active");
     }
 
+    const final = document.getElementById("dnaFinal");
 
-    modal.classList.remove("active");
-
-    document.body.classList.remove(
-        "no-scroll"
-    );
-
-
-    setTimeout(() => {
-
-        document
-            .querySelectorAll(".dna-modal-step")
-            .forEach((step) => {
-
-                step.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-        const firstStep =
-            document.getElementById(
-                "dnaStep1"
-            );
-
-
-        if (firstStep) {
-
-            firstStep.classList.add(
-                "active"
-            );
-
-        }
-
-
-        const final =
-            document.getElementById(
-                "dnaFinal"
-            );
-
-
-        if (final) {
-
-            final.classList.remove(
-                "active"
-            );
-
-        }
-
-    }, 400);
-
+    if (final) {
+      final.classList.remove("active");
+    }
+  }, 400);
 }
-
 
 /* =========================================================
 DNA QUESTION 1
 ========================================================= */
 
 function dnaAnswer(answer) {
+  dnaSilhouette = answer;
 
-    dnaSilhouette = answer;
+  const first = document.getElementById("dnaStep1");
 
+  const second = document.getElementById("dnaStep2");
 
-    const first =
-        document.getElementById(
-            "dnaStep1"
-        );
+  if (first) {
+    first.classList.remove("active");
+  }
 
-    const second =
-        document.getElementById(
-            "dnaStep2"
-        );
-
-
-    if (first) {
-
-        first.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    if (second) {
-
-        second.classList.add(
-            "active"
-        );
-
-    }
-
+  if (second) {
+    second.classList.add("active");
+  }
 }
-
 
 /* =========================================================
 DNA QUESTION 2
 ========================================================= */
 
 function dnaAnswer2(answer) {
+  dnaColour = answer;
 
-    dnaColour = answer;
+  const second = document.getElementById("dnaStep2");
 
+  const third = document.getElementById("dnaStep3");
 
-    const second =
-        document.getElementById(
-            "dnaStep2"
-        );
+  if (second) {
+    second.classList.remove("active");
+  }
 
-    const third =
-        document.getElementById(
-            "dnaStep3"
-        );
-
-
-    if (second) {
-
-        second.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    if (third) {
-
-        third.classList.add(
-            "active"
-        );
-
-    }
-
+  if (third) {
+    third.classList.add("active");
+  }
 }
-
 
 /* =========================================================
 DNA RESULT
 ========================================================= */
 
 function dnaResult(energy) {
+  const third = document.getElementById("dnaStep3");
 
-    const third =
-        document.getElementById(
-            "dnaStep3"
-        );
+  const final = document.getElementById("dnaFinal");
 
-    const final =
-        document.getElementById(
-            "dnaFinal"
-        );
+  if (third) {
+    third.classList.remove("active");
+  }
 
+  if (final) {
+    final.classList.add("active");
+  }
 
-    if (third) {
+  let title = "The Effortless Minimalist";
 
-        third.classList.remove(
-            "active"
-        );
+  let description =
+    "Clean, comfortable and intentional. You don't need loud pieces to make a statement.";
 
-    }
+  if (dnaSilhouette === "Relaxed" && dnaColour === "Dark") {
+    title = "The Off-Duty Creative";
 
+    description =
+      "Relaxed silhouettes, darker tones and a little bit of unpredictability. You make casual look intentional.";
+  }
 
-    if (final) {
+  if (dnaColour === "Colourful" && energy === "Creative") {
+    title = "The Creative Maximalist";
 
-        final.classList.add(
-            "active"
-        );
+    description =
+      "You see clothing as a playground. Colour, contrast and unexpected combinations are your language.";
+  }
 
-    }
+  if (energy === "Confident") {
+    title = "The Quiet Statement";
 
+    description =
+      "You don't need to shout. Strong silhouettes and intentional choices create your signature.";
+  }
 
-    let title =
-        "The Effortless Minimalist";
+  const dnaTitle = document.getElementById("dnaTitle");
 
-    let description =
-        "Clean, comfortable and intentional. You don't need loud pieces to make a statement.";
+  const dnaDescription = document.getElementById("dnaDescription");
 
+  if (dnaTitle) {
+    dnaTitle.textContent = title;
+  }
 
-    if (
-        dnaSilhouette === "Relaxed" &&
-        dnaColour === "Dark"
-    ) {
+  if (dnaDescription) {
+    dnaDescription.textContent = description;
+  }
 
-        title =
-            "The Off-Duty Creative";
-
-        description =
-            "Relaxed silhouettes, darker tones and a little bit of unpredictability. You make casual look intentional.";
-
-    }
-
-
-    if (
-        dnaColour === "Colourful" &&
-        energy === "Creative"
-    ) {
-
-        title =
-            "The Creative Maximalist";
-
-        description =
-            "You see clothing as a playground. Colour, contrast and unexpected combinations are your language.";
-
-    }
-
-
-    if (energy === "Confident") {
-
-        title =
-            "The Quiet Statement";
-
-        description =
-            "You don't need to shout. Strong silhouettes and intentional choices create your signature.";
-
-    }
-
-
-    const dnaTitle =
-        document.getElementById(
-            "dnaTitle"
-        );
-
-    const dnaDescription =
-        document.getElementById(
-            "dnaDescription"
-        );
-
-
-    if (dnaTitle) {
-
-        dnaTitle.textContent =
-            title;
-
-    }
-
-
-    if (dnaDescription) {
-
-        dnaDescription.textContent =
-            description;
-
-    }
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        RESET BARS
     ------------------------------------- */
 
-    document
-        .querySelectorAll(".dna-bar span")
-        .forEach((bar) => {
+  document.querySelectorAll(".dna-bar span").forEach((bar) => {
+    bar.style.width = "0%";
+  });
 
-            bar.style.width = "0%";
-
-        });
-
-
-    /* -------------------------------------
+  /* -------------------------------------
        ANIMATE BARS
     ------------------------------------- */
 
-    setTimeout(() => {
+  setTimeout(() => {
+    const minimal = document.getElementById("barMinimal");
 
-        const minimal =
-            document.getElementById(
-                "barMinimal"
-            );
+    const street = document.getElementById("barStreet");
 
-        const street =
-            document.getElementById(
-                "barStreet"
-            );
+    const creative = document.getElementById("barCreative");
 
-        const creative =
-            document.getElementById(
-                "barCreative"
-            );
+    if (minimal) {
+      minimal.style.width = "78%";
+    }
 
+    if (street) {
+      street.style.width = "42%";
+    }
 
-        if (minimal) {
-
-            minimal.style.width = "78%";
-
-        }
-
-
-        if (street) {
-
-            street.style.width = "42%";
-
-        }
-
-
-        if (creative) {
-
-            creative.style.width = "65%";
-
-        }
-
-    }, 300);
-
+    if (creative) {
+      creative.style.width = "65%";
+    }
+  }, 300);
 }
-
 
 /* =========================================================
 08. CUSTOM CURSOR
 ========================================================= */
 
-const cursor =
-    document.getElementById(
-        "cursor"
-    );
+const cursor = document.getElementById("cursor");
 
+if (cursor && window.innerWidth > 600) {
+  document.addEventListener("mousemove", (event) => {
+    cursor.style.left = event.clientX + "px";
 
-if (
-    cursor &&
-    window.innerWidth > 600
-) {
+    cursor.style.top = event.clientY + "px";
+  });
 
-    document.addEventListener(
-        "mousemove",
-        (event) => {
+  document.querySelectorAll(".cursor-view").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      cursor.classList.add("active");
+    });
 
-            cursor.style.left =
-                event.clientX + "px";
-
-            cursor.style.top =
-                event.clientY + "px";
-
-        }
-    );
-
-
-    document
-        .querySelectorAll(".cursor-view")
-        .forEach((element) => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursor.classList.add(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursor.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-        });
-
+    element.addEventListener("mouseleave", () => {
+      cursor.classList.remove("active");
+    });
+  });
 }
-
 
 /* =========================================================
 09. MAGNETIC BUTTONS
 ========================================================= */
 
-const magneticButtons =
-    document.querySelectorAll(
-        ".primary-btn"
-    );
-
+const magneticButtons = document.querySelectorAll(".primary-btn");
 
 magneticButtons.forEach((button) => {
+  button.addEventListener("mousemove", (event) => {
+    if (window.innerWidth <= 600) {
+      return;
+    }
 
-    button.addEventListener(
-        "mousemove",
-        (event) => {
+    const rect = button.getBoundingClientRect();
 
-            if (window.innerWidth <= 600) {
-                return;
-            }
+    const x = event.clientX - rect.left - rect.width / 2;
 
+    const y = event.clientY - rect.top - rect.height / 2;
 
-            const rect =
-                button.getBoundingClientRect();
+    button.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+  });
 
-
-            const x =
-                event.clientX -
-                rect.left -
-                rect.width / 2;
-
-
-            const y =
-                event.clientY -
-                rect.top -
-                rect.height / 2;
-
-
-            button.style.transform =
-                `translate(${x * 0.12}px, ${y * 0.12}px)`;
-
-        }
-    );
-
-
-    button.addEventListener(
-        "mouseleave",
-        () => {
-
-            button.style.transform =
-                "translate(0, 0)";
-
-        }
-    );
-
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "translate(0, 0)";
+  });
 });
-
 
 /* =========================================================
 10. CLOSE DNA WITH ESCAPE KEY
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (event.key === "Escape") {
-
-            closeDNA();
-
-        }
-
-    }
-);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeDNA();
+  }
+});

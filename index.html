@@ -1,1707 +1,911 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
+    <title>REWEAR — More Ways To Wear</title>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <title>REWEAR — More Ways To Wear</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css">
-
-</head>
-
-
-<body>
-
-
-  <!-- =====================================================
+  <body>
+    <!-- =====================================================
        PAGE LOADER
   ====================================================== -->
 
-  <div class="loader" id="loader">
+    <div class="loader" id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">REWEAR</div>
 
-    <div class="loader-inner">
-
-      <div class="loader-logo">
-        REWEAR
+        <div class="loader-line"></div>
       </div>
-
-      <div class="loader-line"></div>
-
     </div>
 
-  </div>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        CUSTOM CURSOR
   ====================================================== -->
 
-  <div class="cursor" id="cursor">
+    <div class="cursor" id="cursor">
+      <span class="cursor-text"> VIEW </span>
+    </div>
 
-    <span class="cursor-text">
-      VIEW
-    </span>
-
-  </div>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        NAVBAR
   ====================================================== -->
 
-  <header class="navbar" id="navbar">
+    <header class="navbar" id="navbar">
+      <div class="container nav-container">
+        <a href="#home" class="logo"> REWEAR </a>
 
-    <div class="container nav-container">
+        <ul class="nav-links">
+          <li>
+            <a href="#one-piece"> Discover </a>
+          </li>
 
-      <a href="#home" class="logo">
-        REWEAR
-      </a>
+          <li>
+            <a href="#rules"> Experiment </a>
+          </li>
 
+          <li>
+            <a href="#style-me"> Style Me </a>
+          </li>
 
-      <ul class="nav-links">
+          <li>
+            <a href="#dna"> Style DNA </a>
+          </li>
+        </ul>
 
-        <li>
-          <a href="#one-piece">
-            Discover
-          </a>
-        </li>
+        <button class="nav-style-btn" onclick="scrollToSection('style-me')">
+          Style Me ✦
+        </button>
+      </div>
+    </header>
 
-        <li>
-          <a href="#rules">
-            Experiment
-          </a>
-        </li>
-
-        <li>
-          <a href="#style-me">
-            Style Me
-          </a>
-        </li>
-
-        <li>
-          <a href="#dna">
-            Style DNA
-          </a>
-        </li>
-
-      </ul>
-
-
-      <button
-        class="nav-style-btn"
-        onclick="scrollToSection('style-me')"
-      >
-        Style Me ✦
-      </button>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        MAIN
   ====================================================== -->
 
-  <main id="home">
-
-
-    <!-- ===================================================
+    <main id="home">
+      <!-- ===================================================
          HERO
     ==================================================== -->
 
-    <section class="hero container">
+      <section class="hero container">
+        <div class="hero-content">
+          <div class="eyebrow hero-eyebrow">Style beyond the first look</div>
 
-      <div class="hero-content">
+          <h1>
+            You don't need
 
-        <div class="eyebrow hero-eyebrow">
-          Style beyond the first look
+            <em> more clothes. </em>
+          </h1>
+
+          <p class="hero-description">
+            You just need more ways to wear them. Discover new possibilities in
+            the clothes you already own and find a version of your wardrobe that
+            feels completely you.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="primary-btn" onclick="scrollToSection('style-me')">
+              Style Me ✦
+            </button>
+
+            <a href="#one-piece" class="secondary-btn"> Explore </a>
+          </div>
         </div>
 
+        <div class="hero-visual cursor-view">
+          <img
+            src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1100&q=85"
+            alt="Fashion styling"
+          />
 
-        <h1>
-
-          You don't need
-
-          <em>
-            more clothes.
-          </em>
-
-        </h1>
-
-
-        <p class="hero-description">
-
-          You just need more ways to wear them.
-
-          Discover new possibilities in the clothes
-          you already own and find a version of your
-          wardrobe that feels completely you.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-          <button
-            class="primary-btn"
-            onclick="scrollToSection('style-me')"
-          >
-            Style Me ✦
-          </button>
-
-
-          <a
-            href="#one-piece"
-            class="secondary-btn"
-          >
-            Explore
-          </a>
-
+          <div class="hero-image-label">One piece. Endless possibilities.</div>
         </div>
 
-      </div>
+        <div class="hero-scroll">Scroll to discover</div>
+      </section>
 
-
-
-      <div class="hero-visual cursor-view">
-
-        <img
-          src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1100&q=85"
-          alt="Fashion styling"
-        >
-
-        <div class="hero-image-label">
-          One piece. Endless possibilities.
-        </div>
-
-      </div>
-
-
-      <div class="hero-scroll">
-        Scroll to discover
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          PROBLEM
     ==================================================== -->
 
-    <section class="problem">
+      <section class="problem">
+        <div class="container problem-grid">
+          <div class="reveal-left">
+            <div class="eyebrow">The problem</div>
 
-      <div class="container problem-grid">
+            <h2>
+              "I have
 
+              <em> nothing </em>
 
-        <div class="reveal-left">
-
-          <div class="eyebrow">
-            The problem
+              to wear."
+            </h2>
           </div>
 
+          <div class="reveal-right">
+            <p class="problem-copy">
+              We've all been there. You buy something you love, try it once,
+              don't know how to style it and eventually forget it exists.
 
-          <h2>
+              <br /><br />
 
-            "I have
+              Maybe the clothes weren't the problem. Maybe we just needed a
+              different perspective.
+            </p>
 
-            <em>
-              nothing
-            </em>
+            <div class="problem-steps">
+              <div class="problem-step">
+                <span>01</span>
 
-            to wear."
+                Bought something you loved.
+              </div>
 
-          </h2>
+              <div class="problem-step">
+                <span>02</span>
 
-        </div>
+                Couldn't figure out how to style it.
+              </div>
 
+              <div class="problem-step">
+                <span>03</span>
 
+                Wore it once.
+              </div>
 
-        <div class="reveal-right">
+              <div class="problem-step">
+                <span>04</span>
 
-          <p class="problem-copy">
-
-            We've all been there.
-
-            You buy something you love, try it once,
-            don't know how to style it and eventually
-            forget it exists.
-
-            <br><br>
-
-            Maybe the clothes weren't the problem.
-
-            Maybe we just needed a different perspective.
-
-          </p>
-
-
-          <div class="problem-steps">
-
-            <div class="problem-step">
-
-              <span>01</span>
-
-              Bought something you loved.
-
+                Forgot it existed.
+              </div>
             </div>
-
-
-            <div class="problem-step">
-
-              <span>02</span>
-
-              Couldn't figure out how to style it.
-
-            </div>
-
-
-            <div class="problem-step">
-
-              <span>03</span>
-
-              Wore it once.
-
-            </div>
-
-
-            <div class="problem-step">
-
-              <span>04</span>
-
-              Forgot it existed.
-
-            </div>
-
           </div>
-
         </div>
+      </section>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          MANIFESTO
     ==================================================== -->
 
-    <section class="manifesto">
+      <section class="manifesto">
+        <h2 class="reveal">
+          Your wardrobe isn't boring.
 
-      <h2 class="reveal">
+          <span> You just haven't seen all its possibilities. </span>
+        </h2>
+      </section>
 
-        Your wardrobe isn't boring.
-
-        <span>
-          You just haven't seen all its possibilities.
-        </span>
-
-      </h2>
-
-    </section>
-
-
-
-    <!-- =========================================
+      <!-- =========================================
      ONE PIECE. MANY WAYS.
 ========================================= -->
 
-<section class="one-piece" id="one-piece">
+      <section class="one-piece" id="one-piece">
+        <!-- SECTION HEADER -->
+        <div class="section-heading reveal">
+          <div class="section-number">01 — Reimagine</div>
 
-    <!-- SECTION HEADER -->
-    <div class="section-heading reveal">
+          <h2>
+            One piece.
 
-        <div class="section-number">
-          01 — Reimagine
+            <br />
+
+            Many ways.
+          </h2>
+
+          <p>
+            The same item can tell a completely different story depending on how
+            you style it.
+          </p>
         </div>
 
-        <h2>
-
-          One piece.
-
-          <br>
-
-          Many ways.
-
-        </h2>
-
-        <p>
-
-          The same item can tell a completely different story
-          depending on how you style it.
-
-        </p>
-
-      </div>
-
-
-    <!-- =====================================
+        <!-- =====================================
      CLOTHING PIECE SELECTOR
 ====================================== -->
 
-<div class="piece-selector">
+        <div class="piece-selector">
+          <button class="piece-button active" data-piece="shirt">
+            <span>01</span>
+            Shirt
+          </button>
 
-    <button
-        class="piece-button active"
-        data-piece="shirt"
-    >
-        <span>01</span>
-        Shirt
-    </button>
+          <button class="piece-button" data-piece="tee">
+            <span>02</span>
+            Basic Tee
+          </button>
 
-    <button
-        class="piece-button"
-        data-piece="tee"
-    >
-        <span>02</span>
-        Basic Tee
-    </button>
+          <button class="piece-button" data-piece="tank">
+            <span>03</span>
+            Tank Top
+          </button>
 
-    <button
-        class="piece-button"
-        data-piece="tank"
-    >
-        <span>03</span>
-        Tank Top
-    </button>
+          <button class="piece-button" data-piece="blouse">
+            <span>04</span>
+            Tie Neck Blouse
+          </button>
+        </div>
 
-    <button
-        class="piece-button"
-        data-piece="blouse"
-    >
-        <span>04</span>
-        Tie Neck Blouse
-    </button>
-
-</div>
-
-
-<!-- =====================================
+        <!-- =====================================
      MAIN STYLING AREA
 ====================================== -->
 
-<div class="style-wrapper">
+        <div class="style-wrapper">
+          <!-- IMAGE -->
 
+          <div class="style-image-box">
+            <img id="styleImage" src="images/" alt="Shirt styled minimally" />
 
-    <!-- IMAGE -->
+            <div class="image-label" id="imageLabel">THE SHIRT</div>
 
-    <div class="style-image-box">
+            <button class="view-btn">VIEW</button>
+          </div>
 
-        <img
-            id="styleImage"
-            src="images/"
-            alt="Shirt styled minimally"
-        >
-
-        <div class="image-label" id="imageLabel">
-            THE SHIRT
-        </div>
-
-        <button class="view-btn">
-            VIEW
-        </button>
-
-    </div>
-
-
-    <!-- =================================
+          <!-- =================================
          RIGHT CONTENT
     ================================== -->
 
-    <div class="style-content">
+          <div class="style-content">
+            <!-- STYLE TABS -->
 
-
-        <!-- STYLE TABS -->
-
-        <div
-            class="style-tabs"
-            id="styleTabs"
-        >
-
-            <button
-                class="style-tab active"
-                data-style="minimal"
-            >
+            <div class="style-tabs" id="styleTabs">
+              <button class="style-tab active" data-style="minimal">
                 MINIMAL
-            </button>
+              </button>
 
-            <button
-                class="style-tab"
-                data-style="street"
-            >
-                STREET
-            </button>
+              <button class="style-tab" data-style="street">STREET</button>
 
-            <button
-                class="style-tab"
-                data-style="feminine"
-            >
-                FEMININE
-            </button>
+              <button class="style-tab" data-style="feminine">FEMININE</button>
 
-            <button
-                class="style-tab"
-                data-style="smart"
-            >
-                SMART
-            </button>
+              <button class="style-tab" data-style="smart">SMART</button>
+            </div>
 
-        </div>
-
-
-        <!-- =================================
+            <!-- =================================
              STYLE INFORMATION
         ================================== -->
 
-        <div
-            class="style-info"
-            id="styleInfo"
-        >
+            <div class="style-info" id="styleInfo">
+              <p class="piece-name">THE SHIRT</p>
 
-            <p class="piece-name">
-                THE SHIRT
-            </p>
+              <h3 id="styleTitle">Effortless Minimal</h3>
 
-            <h3 id="styleTitle">
-                Effortless Minimal
-            </h3>
+              <p class="style-description" id="styleDescription">
+                Keep the silhouette clean with tailored trousers and simple
+                accessories. Perfect for a polished everyday look.
+              </p>
+            </div>
 
-            <p
-                class="style-description"
-                id="styleDescription"
-            >
-                Keep the silhouette clean with tailored
-                trousers and simple accessories. Perfect
-                for a polished everyday look.
-            </p>
-
-        </div>
-
-
-        <!-- =================================
+            <!-- =================================
              STYLE TIP
         ================================== -->
 
-        <div class="style-tip">
+            <div class="style-tip">
+              <span> STYLE TIP </span>
 
-            <span>
-                STYLE TIP
-            </span>
-
-            <p id="styleTip">
-                Keep the colours neutral and let
-                the silhouette do the talking.
-            </p>
-
+              <p id="styleTip">
+                Keep the colours neutral and let the silhouette do the talking.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-    </div>
-
-</div>
-
-</section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          STYLE WITHOUT RULES
     ==================================================== -->
 
-    <section
-      class="rules"
-      id="rules"
-    >
+      <section class="rules" id="rules">
+        <div class="container">
+          <div class="rules-header reveal">
+            <div>
+              <div class="section-number">02 — Experiment</div>
 
-      <div class="container">
+              <h2>
+                Style has
 
+                <br />
 
-        <div class="rules-header reveal">
-
-          <div>
-
-            <div class="section-number">
-              02 — Experiment
+                <em class="serif"> no rules. </em>
+              </h2>
             </div>
 
-
-            <h2>
-
-              Style has
-
-              <br>
-
-              <em class="serif">
-                no rules.
-              </em>
-
-            </h2>
-
+            <p>
+              Fashion gets interesting when you stop asking whether something
+              "goes together" and start asking whether it feels like you.
+            </p>
           </div>
 
+          <div class="rules-grid">
+            <div class="rule-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
+                alt="Unexpected fashion styling"
+              />
 
-          <p>
+              <div class="rule-overlay">
+                <div class="rule-number">01 — BREAK THE RULE</div>
 
-            Fashion gets interesting when you stop
-            asking whether something "goes together"
-            and start asking whether it feels like you.
+                <h3>Unexpected</h3>
 
-          </p>
+                <p>Mix pieces you wouldn't normally put together.</p>
+              </div>
+            </div>
 
+            <div class="rule-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
+                alt="Fashion reinterpretation"
+              />
+
+              <div class="rule-overlay">
+                <div class="rule-number">02 — CHANGE THE MOOD</div>
+
+                <h3>Reinterpret</h3>
+
+                <p>Change the accessories. Change the entire feeling.</p>
+              </div>
+            </div>
+
+            <div class="rule-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85"
+                alt="Personal fashion style"
+              />
+
+              <div class="rule-overlay">
+                <div class="rule-number">03 — MAKE IT YOURS</div>
+
+                <h3>Experiment</h3>
+
+                <p>The best outfit is the one that feels like you.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-
-
-        <div class="rules-grid">
-
-
-          <div class="rule-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
-              alt="Unexpected fashion styling"
-            >
-
-
-            <div class="rule-overlay">
-
-              <div class="rule-number">
-                01 — BREAK THE RULE
-              </div>
-
-              <h3>
-                Unexpected
-              </h3>
-
-              <p>
-                Mix pieces you wouldn't normally put together.
-              </p>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="rule-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
-              alt="Fashion reinterpretation"
-            >
-
-
-            <div class="rule-overlay">
-
-              <div class="rule-number">
-                02 — CHANGE THE MOOD
-              </div>
-
-              <h3>
-                Reinterpret
-              </h3>
-
-              <p>
-                Change the accessories. Change the entire feeling.
-              </p>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="rule-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85"
-              alt="Personal fashion style"
-            >
-
-
-            <div class="rule-overlay">
-
-              <div class="rule-number">
-                03 — MAKE IT YOURS
-              </div>
-
-              <h3>
-                Experiment
-              </h3>
-
-              <p>
-                The best outfit is the one that feels like you.
-              </p>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          OCCASIONS
     ==================================================== -->
 
-    <section class="occasions">
+      <section class="occasions">
+        <div class="container">
+          <div class="occasion-intro reveal">
+            <div class="section-number">03 — Style for the moment</div>
 
-      <div class="container">
+            <h2>Where are you going?</h2>
 
-
-        <div class="occasion-intro reveal">
-
-          <div class="section-number">
-            03 — Style for the moment
+            <p>Because the same piece can belong anywhere.</p>
           </div>
 
+          <div class="occasion-grid">
+            <div class="occasion-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+                alt="College outfit"
+              />
 
-          <h2>
-            Where are you going?
-          </h2>
+              <div class="occasion-content">
+                <span> 01 </span>
 
+                <h3>College</h3>
+              </div>
+            </div>
 
-          <p>
-            Because the same piece can belong anywhere.
-          </p>
+            <div class="occasion-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1496217590455-aa63a8350eea?auto=format&fit=crop&w=700&q=85"
+                alt="Casual outfit"
+              />
 
+              <div class="occasion-content">
+                <span> 02 </span>
+
+                <h3>Casual</h3>
+              </div>
+            </div>
+
+            <div class="occasion-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"
+                alt="Date night outfit"
+              />
+
+              <div class="occasion-content">
+                <span> 03 </span>
+
+                <h3>Date Night</h3>
+              </div>
+            </div>
+
+            <div class="occasion-card reveal cursor-view">
+              <img
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"
+                alt="Concert outfit"
+              />
+
+              <div class="occasion-content">
+                <span> 04 </span>
+
+                <h3>Concert</h3>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-
-
-        <div class="occasion-grid">
-
-
-          <div class="occasion-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
-              alt="College outfit"
-            >
-
-
-            <div class="occasion-content">
-
-              <span>
-                01
-              </span>
-
-              <h3>
-                College
-              </h3>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="occasion-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1496217590455-aa63a8350eea?auto=format&fit=crop&w=700&q=85"
-              alt="Casual outfit"
-            >
-
-
-            <div class="occasion-content">
-
-              <span>
-                02
-              </span>
-
-              <h3>
-                Casual
-              </h3>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="occasion-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"
-              alt="Date night outfit"
-            >
-
-
-            <div class="occasion-content">
-
-              <span>
-                03
-              </span>
-
-              <h3>
-                Date Night
-              </h3>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="occasion-card reveal cursor-view">
-
-            <img
-              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"
-              alt="Concert outfit"
-            >
-
-
-            <div class="occasion-content">
-
-              <span>
-                04
-              </span>
-
-              <h3>
-                Concert
-              </h3>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          STYLE ME
     ==================================================== -->
 
-    <section
-      class="style-section"
-      id="style-me"
-    >
+      <section class="style-section" id="style-me">
+        <div class="container">
+          <div class="eyebrow reveal">Your personal styling experience</div>
 
-      <div class="container">
+          <h2 class="reveal">
+            Style
 
+            <em> Me. </em>
+          </h2>
 
-        <div class="eyebrow reveal">
-          Your personal styling experience
-        </div>
+          <p class="reveal">
+            Tell us what you're working with, where you're going and how you
+            want to feel. We'll help you discover what it could become.
+          </p>
 
+          <!-- STYLE TOOL -->
 
-        <h2 class="reveal">
+          <div class="style-tool reveal">
+            <!-- PROGRESS -->
 
-          Style
+            <div class="style-progress">
+              <span class="progress-step active" id="progress1"> 01 </span>
 
-          <em>
-            Me.
-          </em>
+              <span class="progress-line"></span>
 
-        </h2>
+              <span class="progress-step" id="progress2"> 02 </span>
 
+              <span class="progress-line"></span>
 
-        <p class="reveal">
-
-          Tell us what you're working with,
-          where you're going and how you want to feel.
-
-          We'll help you discover what it could become.
-
-        </p>
-
-
-
-        <!-- STYLE TOOL -->
-
-        <div class="style-tool reveal">
-
-
-          <!-- PROGRESS -->
-
-          <div class="style-progress">
-
-            <span
-              class="progress-step active"
-              id="progress1"
-            >
-              01
-            </span>
-
-
-            <span class="progress-line"></span>
-
-
-            <span
-              class="progress-step"
-              id="progress2"
-            >
-              02
-            </span>
-
-
-            <span class="progress-line"></span>
-
-
-            <span
-              class="progress-step"
-              id="progress3"
-            >
-              03
-            </span>
-
-          </div>
-
-
-
-          <!-- STEP 1 -->
-
-          <div
-            class="style-step active"
-            id="styleStep1"
-          >
-
-            <div class="style-step-number">
-              STEP 01
+              <span class="progress-step" id="progress3"> 03 </span>
             </div>
 
+            <!-- STEP 1 -->
 
-            <h3>
-              What are we working with?
-            </h3>
+            <div class="style-step active" id="styleStep1">
+              <div class="style-step-number">STEP 01</div>
 
+              <h3>What are we working with?</h3>
 
-            <p>
-              Start with one piece from your wardrobe.
-            </p>
+              <p>Start with one piece from your wardrobe.</p>
 
+              <div class="style-options">
+                <button class="style-option" onclick="selectPiece('Top', this)">
+                  <span>01</span>
+                  Top
+                </button>
 
-            <div class="style-options">
-
-
-              <button
-                class="style-option"
-                onclick="selectPiece('Top', this)"
-              >
-
-                <span>01</span>
-                Top
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectPiece('Bottom', this)"
-              >
-
-                <span>02</span>
-                Bottom
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectPiece('Dress', this)"
-              >
-
-                <span>03</span>
-                Dress
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectPiece('Jacket', this)"
-              >
-
-                <span>04</span>
-                Jacket
-
-              </button>
-
-
-            </div>
-
-          </div>
-
-
-
-          <!-- STEP 2 -->
-
-          <div
-            class="style-step"
-            id="styleStep2"
-          >
-
-            <div class="style-step-number">
-              STEP 02
-            </div>
-
-
-            <h3>
-              Where are you going?
-            </h3>
-
-
-            <p>
-              Because the same piece can tell a different story.
-            </p>
-
-
-            <div class="style-options">
-
-
-              <button
-                class="style-option"
-                onclick="selectOccasion('College', this)"
-              >
-
-                <span>01</span>
-                College
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectOccasion('Date Night', this)"
-              >
-
-                <span>02</span>
-                Date Night
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectOccasion('Concert', this)"
-              >
-
-                <span>03</span>
-                Concert
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="selectOccasion('Casual', this)"
-              >
-
-                <span>04</span>
-                Casual
-
-              </button>
-
-
-            </div>
-
-          </div>
-
-
-
-          <!-- STEP 3 -->
-
-          <div
-            class="style-step"
-            id="styleStep3"
-          >
-
-            <div class="style-step-number">
-              STEP 03
-            </div>
-
-
-            <h3>
-              What's your energy?
-            </h3>
-
-
-            <p>
-              Choose the feeling you want your outfit to have.
-            </p>
-
-
-            <div class="style-options">
-
-
-              <button
-                class="style-option"
-                onclick="generateLook('Minimal', this)"
-              >
-
-                <span>01</span>
-                Minimal
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="generateLook('Street', this)"
-              >
-
-                <span>02</span>
-                Street
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="generateLook('Feminine', this)"
-              >
-
-                <span>03</span>
-                Feminine
-
-              </button>
-
-
-              <button
-                class="style-option"
-                onclick="generateLook('Bold', this)"
-              >
-
-                <span>04</span>
-                Bold
-
-              </button>
-
-
-            </div>
-
-          </div>
-
-
-
-          <!-- GENERATING -->
-
-          <div
-            class="style-generating"
-            id="styleGenerating"
-          >
-
-            <div class="generating-symbol">
-              ✦
-            </div>
-
-
-            <p>
-              BUILDING YOUR LOOK
-            </p>
-
-
-            <div class="generating-bar">
-
-              <span id="generatingBar"></span>
-
-            </div>
-
-
-            <div class="generating-status">
-
-              <span id="generationText">
-                Analysing your choices...
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- RESULT -->
-
-          <div
-            class="style-result"
-            id="styleResult"
-          >
-
-            <div class="result-label">
-              YOUR LOOK
-            </div>
-
-
-            <h3 id="resultTitle">
-              The Effortless One
-            </h3>
-
-
-            <p id="resultDescription">
-
-              Your style is all about confidence
-              without trying too hard.
-
-            </p>
-
-
-            <div class="result-outfit">
-
-
-              <div class="result-image">
-
-                <img
-                  id="resultImage"
-                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-                  alt="Styled outfit"
+                <button
+                  class="style-option"
+                  onclick="selectPiece('Bottom', this)"
                 >
+                  <span>02</span>
+                  Bottom
+                </button>
 
+                <button
+                  class="style-option"
+                  onclick="selectPiece('Dress', this)"
+                >
+                  <span>03</span>
+                  Dress
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="selectPiece('Jacket', this)"
+                >
+                  <span>04</span>
+                  Jacket
+                </button>
               </div>
-
-
-
-              <div class="result-details">
-
-
-                <div class="result-item">
-
-                  <span>
-                    BASE
-                  </span>
-
-                  <strong id="resultBase">
-                    Your piece
-                  </strong>
-
-                </div>
-
-
-                <div class="result-item">
-
-                  <span>
-                    OCCASION
-                  </span>
-
-                  <strong id="resultOccasion">
-                    Everyday
-                  </strong>
-
-                </div>
-
-
-                <div class="result-item">
-
-                  <span>
-                    ENERGY
-                  </span>
-
-                  <strong id="resultEnergy">
-                    Effortless
-                  </strong>
-
-                </div>
-
-
-              </div>
-
             </div>
 
+            <!-- STEP 2 -->
 
-            <button
-              class="secondary-btn"
-              onclick="restartStyle()"
-            >
-              Style Another Look ↗
-            </button>
+            <div class="style-step" id="styleStep2">
+              <div class="style-step-number">STEP 02</div>
 
+              <h3>Where are you going?</h3>
+
+              <p>Because the same piece can tell a different story.</p>
+
+              <div class="style-options">
+                <button
+                  class="style-option"
+                  onclick="selectOccasion('College', this)"
+                >
+                  <span>01</span>
+                  College
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="selectOccasion('Date Night', this)"
+                >
+                  <span>02</span>
+                  Date Night
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="selectOccasion('Concert', this)"
+                >
+                  <span>03</span>
+                  Concert
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="selectOccasion('Casual', this)"
+                >
+                  <span>04</span>
+                  Casual
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+
+            <div class="style-step" id="styleStep3">
+              <div class="style-step-number">STEP 03</div>
+
+              <h3>What's your energy?</h3>
+
+              <p>Choose the feeling you want your outfit to have.</p>
+
+              <div class="style-options">
+                <button
+                  class="style-option"
+                  onclick="generateLook('Minimal', this)"
+                >
+                  <span>01</span>
+                  Minimal
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="generateLook('Street', this)"
+                >
+                  <span>02</span>
+                  Street
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="generateLook('Feminine', this)"
+                >
+                  <span>03</span>
+                  Feminine
+                </button>
+
+                <button
+                  class="style-option"
+                  onclick="generateLook('Bold', this)"
+                >
+                  <span>04</span>
+                  Bold
+                </button>
+              </div>
+            </div>
+
+            <!-- GENERATING -->
+
+            <div class="style-generating" id="styleGenerating">
+              <div class="generating-symbol">✦</div>
+
+              <p>BUILDING YOUR LOOK</p>
+
+              <div class="generating-bar">
+                <span id="generatingBar"></span>
+              </div>
+
+              <div class="generating-status">
+                <span id="generationText"> Analysing your choices... </span>
+              </div>
+            </div>
+
+            <!-- RESULT -->
+
+            <div class="style-result" id="styleResult">
+              <div class="result-label">YOUR LOOK</div>
+
+              <h3 id="resultTitle">The Effortless One</h3>
+
+              <p id="resultDescription">
+                Your style is all about confidence without trying too hard.
+              </p>
+
+              <div class="result-outfit">
+                <div class="result-image">
+                  <img
+                    id="resultImage"
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+                    alt="Styled outfit"
+                  />
+                </div>
+
+                <div class="result-details">
+                  <div class="result-item">
+                    <span> BASE </span>
+
+                    <strong id="resultBase"> Your piece </strong>
+                  </div>
+
+                  <div class="result-item">
+                    <span> OCCASION </span>
+
+                    <strong id="resultOccasion"> Everyday </strong>
+                  </div>
+
+                  <div class="result-item">
+                    <span> ENERGY </span>
+
+                    <strong id="resultEnergy"> Effortless </strong>
+                  </div>
+                </div>
+              </div>
+
+              <button class="secondary-btn" onclick="restartStyle()">
+                Style Another Look ↗
+              </button>
+            </div>
           </div>
-
-
         </div>
+      </section>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          STYLE DNA
     ==================================================== -->
 
-    <section
-      class="dna"
-      id="dna"
-    >
-
-      <div class="container dna-grid">
-
-
-        <div class="dna-image reveal-left cursor-view">
-
-          <img
-            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
-            alt="Personal style"
-          >
-
-        </div>
-
-
-
-        <div class="dna-content reveal-right">
-
-          <div class="section-number">
-            04 — Discover yourself
+      <section class="dna" id="dna">
+        <div class="container dna-grid">
+          <div class="dna-image reveal-left cursor-view">
+            <img
+              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
+              alt="Personal style"
+            />
           </div>
 
+          <div class="dna-content reveal-right">
+            <div class="section-number">04 — Discover yourself</div>
 
-          <h2>
+            <h2>
+              Discover your
 
-            Discover your
+              <br />
 
-            <br>
+              <em> Style DNA. </em>
+            </h2>
 
-            <em>
-              Style DNA.
-            </em>
+            <p>
+              Your style isn't a trend. It's a combination of what makes you
+              comfortable, confident and completely yourself.
+            </p>
 
-          </h2>
+            <button class="primary-btn" onclick="openDNA()">
+              Discover My Style ✦
+            </button>
 
+            <div class="dna-features">
+              <div class="dna-feature">
+                <span> 01 </span>
 
-          <p>
+                Your silhouettes
+              </div>
 
-            Your style isn't a trend.
+              <div class="dna-feature">
+                <span> 02 </span>
 
-            It's a combination of what makes you
-            comfortable, confident and completely yourself.
+                Your colour language
+              </div>
 
-          </p>
+              <div class="dna-feature">
+                <span> 03 </span>
 
+                Your energy
+              </div>
 
-          <button
-            class="primary-btn"
-            onclick="openDNA()"
-          >
-            Discover My Style ✦
-          </button>
+              <div class="dna-feature">
+                <span> 04 </span>
 
-
-
-          <div class="dna-features">
-
-
-            <div class="dna-feature">
-
-              <span>
-                01
-              </span>
-
-              Your silhouettes
-
+                Your signature
+              </div>
             </div>
-
-
-            <div class="dna-feature">
-
-              <span>
-                02
-              </span>
-
-              Your colour language
-
-            </div>
-
-
-            <div class="dna-feature">
-
-              <span>
-                03
-              </span>
-
-              Your energy
-
-            </div>
-
-
-            <div class="dna-feature">
-
-              <span>
-                04
-              </span>
-
-              Your signature
-
-            </div>
-
-
           </div>
-
         </div>
+      </section>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          PHILOSOPHY
     ==================================================== -->
 
-    <section class="philosophy">
+      <section class="philosophy">
+        <div class="container">
+          <div class="eyebrow reveal">The Rewear philosophy</div>
 
-      <div class="container">
+          <div class="philosophy-line reveal"></div>
 
+          <h2 class="reveal">
+            Before you buy something new...
 
-        <div class="eyebrow reveal">
-          The Rewear philosophy
+            <br />
+
+            <span> look again. </span>
+          </h2>
+
+          <p class="philosophy-copy reveal">
+            One piece can become three outfits. Three outfits can become ten
+            moments. And sometimes, a different perspective is all your wardrobe
+            needs.
+          </p>
         </div>
+      </section>
 
-
-        <div class="philosophy-line reveal"></div>
-
-
-        <h2 class="reveal">
-
-          Before you buy something new...
-
-          <br>
-
-          <span>
-            look again.
-          </span>
-
-        </h2>
-
-
-        <p class="philosophy-copy reveal">
-
-          One piece can become three outfits.
-
-          Three outfits can become ten moments.
-
-          And sometimes, a different perspective
-          is all your wardrobe needs.
-
-        </p>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ===================================================
+      <!-- ===================================================
          FINAL CTA
     ==================================================== -->
 
-    <section class="final-cta">
+      <section class="final-cta">
+        <div class="container">
+          <div class="eyebrow reveal">Your wardrobe. Your rules.</div>
 
-      <div class="container">
+          <h2 class="reveal">
+            We don't tell you
 
+            <br />
 
-        <div class="eyebrow reveal">
-          Your wardrobe. Your rules.
+            <em> what to wear. </em>
+          </h2>
+
+          <p class="reveal">We show you what's possible.</p>
+
+          <button
+            class="primary-btn reveal"
+            onclick="scrollToSection('style-me')"
+          >
+            Start Styling ✦
+          </button>
         </div>
+      </section>
+    </main>
 
-
-        <h2 class="reveal">
-
-          We don't tell you
-
-          <br>
-
-          <em>
-            what to wear.
-          </em>
-
-        </h2>
-
-
-        <p class="reveal">
-          We show you what's possible.
-        </p>
-
-
-        <button
-          class="primary-btn reveal"
-          onclick="scrollToSection('style-me')"
-        >
-          Start Styling ✦
-        </button>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        STYLE DNA MODAL
   ====================================================== -->
 
-  <div
-    class="dna-modal"
-    id="dnaModal"
-  >
+    <div class="dna-modal" id="dnaModal">
+      <div class="dna-modal-box">
+        <button class="dna-close" onclick="closeDNA()">×</button>
 
-    <div class="dna-modal-box">
+        <!-- DNA STEP 1 -->
 
+        <div class="dna-modal-step active" id="dnaStep1">
+          <div class="section-number">STYLE DNA · 01</div>
 
-      <button
-        class="dna-close"
-        onclick="closeDNA()"
-      >
-        ×
-      </button>
+          <h2>What's your favourite silhouette?</h2>
 
+          <div class="dna-options">
+            <button onclick="dnaAnswer('Relaxed')">Relaxed & Oversized</button>
 
+            <button onclick="dnaAnswer('Structured')">
+              Clean & Structured
+            </button>
 
-      <!-- DNA STEP 1 -->
-
-      <div
-        class="dna-modal-step active"
-        id="dnaStep1"
-      >
-
-        <div class="section-number">
-          STYLE DNA · 01
+            <button onclick="dnaAnswer('Fitted')">Fitted & Defined</button>
+          </div>
         </div>
 
+        <!-- DNA STEP 2 -->
 
-        <h2>
-          What's your favourite silhouette?
-        </h2>
+        <div class="dna-modal-step" id="dnaStep2">
+          <div class="section-number">STYLE DNA · 02</div>
 
+          <h2>Pick your colour language.</h2>
 
-        <div class="dna-options">
+          <div class="dna-options">
+            <button onclick="dnaAnswer2('Neutral')">Neutrals</button>
 
-          <button onclick="dnaAnswer('Relaxed')">
-            Relaxed & Oversized
-          </button>
+            <button onclick="dnaAnswer2('Colourful')">Colourful</button>
 
-          <button onclick="dnaAnswer('Structured')">
-            Clean & Structured
-          </button>
-
-          <button onclick="dnaAnswer('Fitted')">
-            Fitted & Defined
-          </button>
-
+            <button onclick="dnaAnswer2('Dark')">Dark & Moody</button>
+          </div>
         </div>
 
-      </div>
+        <!-- DNA STEP 3 -->
 
+        <div class="dna-modal-step" id="dnaStep3">
+          <div class="section-number">STYLE DNA · 03</div>
 
+          <h2>How do you want to feel?</h2>
 
-      <!-- DNA STEP 2 -->
+          <div class="dna-options">
+            <button onclick="dnaResult('Effortless')">Effortless</button>
 
-      <div
-        class="dna-modal-step"
-        id="dnaStep2"
-      >
+            <button onclick="dnaResult('Confident')">Confident</button>
 
-        <div class="section-number">
-          STYLE DNA · 02
+            <button onclick="dnaResult('Creative')">Creative</button>
+          </div>
         </div>
 
+        <!-- DNA RESULT -->
 
-        <h2>
-          Pick your colour language.
-        </h2>
+        <div class="dna-final" id="dnaFinal">
+          <div class="eyebrow">YOUR STYLE DNA</div>
 
+          <h2 id="dnaTitle">The Effortless Minimalist</h2>
 
-        <div class="dna-options">
+          <p id="dnaDescription">
+            Your style is clean, comfortable and intentional.
+          </p>
 
-          <button onclick="dnaAnswer2('Neutral')">
-            Neutrals
-          </button>
+          <div class="dna-bars">
+            <div>
+              <span> Minimal </span>
 
-          <button onclick="dnaAnswer2('Colourful')">
-            Colourful
-          </button>
-
-          <button onclick="dnaAnswer2('Dark')">
-            Dark & Moody
-          </button>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- DNA STEP 3 -->
-
-      <div
-        class="dna-modal-step"
-        id="dnaStep3"
-      >
-
-        <div class="section-number">
-          STYLE DNA · 03
-        </div>
-
-
-        <h2>
-          How do you want to feel?
-        </h2>
-
-
-        <div class="dna-options">
-
-          <button onclick="dnaResult('Effortless')">
-            Effortless
-          </button>
-
-          <button onclick="dnaResult('Confident')">
-            Confident
-          </button>
-
-          <button onclick="dnaResult('Creative')">
-            Creative
-          </button>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- DNA RESULT -->
-
-      <div
-        class="dna-final"
-        id="dnaFinal"
-      >
-
-        <div class="eyebrow">
-          YOUR STYLE DNA
-        </div>
-
-
-        <h2 id="dnaTitle">
-          The Effortless Minimalist
-        </h2>
-
-
-        <p id="dnaDescription">
-          Your style is clean, comfortable and intentional.
-        </p>
-
-
-        <div class="dna-bars">
-
-
-          <div>
-
-            <span>
-              Minimal
-            </span>
-
-            <div class="dna-bar">
-              <span id="barMinimal"></span>
+              <div class="dna-bar">
+                <span id="barMinimal"></span>
+              </div>
             </div>
 
-          </div>
+            <div>
+              <span> Street </span>
 
-
-          <div>
-
-            <span>
-              Street
-            </span>
-
-            <div class="dna-bar">
-              <span id="barStreet"></span>
+              <div class="dna-bar">
+                <span id="barStreet"></span>
+              </div>
             </div>
 
-          </div>
+            <div>
+              <span> Creative </span>
 
-
-          <div>
-
-            <span>
-              Creative
-            </span>
-
-            <div class="dna-bar">
-              <span id="barCreative"></span>
+              <div class="dna-bar">
+                <span id="barCreative"></span>
+              </div>
             </div>
-
           </div>
 
-
+          <button class="primary-btn" onclick="closeDNA()">That's Me ✦</button>
         </div>
-
-
-        <button
-          class="primary-btn"
-          onclick="closeDNA()"
-        >
-          That's Me ✦
-        </button>
-
       </div>
-
     </div>
 
-  </div>
-
-
-
-  <!-- =====================================================
+    <!-- =====================================================
        FOOTER
   ====================================================== -->
 
-  <footer>
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-logo">REWEAR</div>
 
-    <div class="container footer-container">
-
-      <div class="footer-logo">
-        REWEAR
+        <div class="footer-text">
+          Style beyond the first look · SIERA Showcase 2026
+        </div>
       </div>
+    </footer>
 
-
-      <div class="footer-text">
-
-        Style beyond the first look · SIERA Showcase 2026
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- Main JavaScript -->
-  <script src="js/script.js"></script>
-
-</body>
-
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
-
