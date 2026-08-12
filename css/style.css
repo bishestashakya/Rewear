@@ -1,0 +1,2685 @@
+/* =========================================================
+   REWEAR — MAIN STYLESHEET
+   SIERA Showcase 2026
+========================================================= */
+
+
+/* =========================================================
+   01. RESET & VARIABLES
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f7f5f0;
+  color: #111;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #111;
+  color: #fff;
+}
+
+:root {
+
+  --cream: #f7f5f0;
+  --soft: #e8e4db;
+  --black: #111111;
+  --grey: #777777;
+  --light-grey: #d8d5ce;
+
+  --serif: "Playfair Display", serif;
+  --sans: "DM Sans", sans-serif;
+
+}
+
+
+/* =========================================================
+   02. GLOBAL UTILITIES
+========================================================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+.section {
+  padding: 130px 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #777;
+}
+
+.section-number {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.serif {
+  font-family: var(--serif);
+}
+
+
+/* =========================================================
+   03. LOADER
+========================================================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+
+  background: var(--black);
+  color: white;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-inner {
+  text-align: center;
+}
+
+.loader-logo {
+  font-size: 30px;
+  letter-spacing: 8px;
+  font-weight: 700;
+
+  animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+.loader-line {
+  width: 140px;
+  height: 1px;
+
+  background: #555;
+
+  margin: 20px auto;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-line::after {
+  content: "";
+
+  position: absolute;
+
+  width: 50%;
+  height: 100%;
+
+  background: white;
+
+  left: -50%;
+
+  animation: loaderLine 1.3s infinite;
+}
+
+@keyframes loaderPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+@keyframes loaderLine {
+
+  100% {
+    left: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   04. CUSTOM CURSOR
+========================================================= */
+
+.cursor {
+  position: fixed;
+
+  width: 12px;
+  height: 12px;
+
+  background: #111;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 10000;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease;
+}
+
+.cursor.active {
+  width: 65px;
+  height: 65px;
+
+  background: #111;
+
+  color: white;
+}
+
+.cursor-text {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: white;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  opacity: 0;
+}
+
+.cursor.active .cursor-text {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   05. NAVBAR
+========================================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background: rgba(247, 245, 240, 0.82);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  transition: 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(247, 245, 240, 0.96);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  height: 76px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: 5px;
+}
+
+.nav-links {
+  display: flex;
+
+  gap: 35px;
+
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+
+  color: #555;
+
+  position: relative;
+
+  padding: 5px 0;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: #111;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #111;
+}
+
+.nav-style-btn {
+  border: none;
+
+  background: #111;
+
+  color: white;
+
+  padding: 12px 21px;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  transition: 0.3s;
+}
+
+.nav-style-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   06. BUTTONS
+========================================================= */
+
+.primary-btn {
+  background: #111;
+
+  color: white;
+
+  border: 1px solid #111;
+
+  padding: 15px 27px;
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn {
+  background: transparent;
+
+  color: #111;
+
+  border: 1px solid #111;
+
+  padding: 15px 27px;
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  transition: 0.35s;
+}
+
+.secondary-btn:hover {
+  background: #111;
+
+  color: white;
+}
+
+
+/* =========================================================
+   07. HERO
+========================================================= */
+
+.hero {
+  min-height: 100vh;
+
+  padding-top: 130px;
+  padding-bottom: 70px;
+
+  display: grid;
+
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  position: relative;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.hero-eyebrow {
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation:
+    heroReveal 0.8s 0.4s forwards;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+
+  font-size: clamp(58px, 7vw, 105px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  letter-spacing: -4px;
+
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  animation:
+    heroReveal 1s 0.6s forwards;
+}
+
+.hero h1 em {
+  display: block;
+
+  color: #777;
+}
+
+.hero-description {
+  max-width: 470px;
+
+  color: #666;
+
+  font-size: 16px;
+
+  margin-top: 35px;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    heroReveal 0.8s 0.9s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 35px;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    heroReveal 0.8s 1.1s forwards;
+}
+
+.hero-visual {
+  height: 720px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transform: scale(1.06);
+
+  animation:
+    heroImageReveal 1.4s 0.2s forwards;
+}
+
+.hero-visual img {
+  height: 100%;
+
+  transition:
+    transform 1.2s ease;
+}
+
+.hero-visual:hover img {
+  transform: scale(1.04);
+}
+
+.hero-image-label {
+  position: absolute;
+
+  bottom: 25px;
+  left: 25px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  padding: 14px 18px;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+.hero-scroll {
+  position: absolute;
+
+  bottom: 30px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #777;
+
+  writing-mode: vertical-rl;
+
+  animation: scrollFloat 2s infinite;
+}
+
+@keyframes heroReveal {
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes heroImageReveal {
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+@keyframes scrollFloat {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      translateY(8px);
+  }
+
+}
+
+
+/* =========================================================
+   08. SCROLL REVEALS
+========================================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+
+  transform: translateX(-50px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+
+  transform: translateX(50px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   09. PROBLEM
+========================================================= */
+
+.problem {
+  background: #111;
+
+  color: white;
+
+  padding: 150px 0;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.problem::before {
+  content: "01";
+
+  position: absolute;
+
+  right: -20px;
+  top: 30px;
+
+  font-family: var(--serif);
+
+  font-size: 220px;
+
+  color: rgba(255, 255, 255, 0.035);
+}
+
+.problem-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+.problem h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(48px, 6vw, 82px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+}
+
+.problem h2 em {
+  color: #888;
+}
+
+.problem-copy {
+  color: #aaa;
+
+  max-width: 500px;
+
+  font-size: 16px;
+}
+
+.problem-steps {
+  margin-top: 40px;
+}
+
+.problem-step {
+  padding: 18px 0;
+
+  border-bottom: 1px solid #333;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #ddd;
+
+  transition: 0.3s;
+}
+
+.problem-step:hover {
+  padding-left: 12px;
+
+  color: white;
+}
+
+.problem-step span {
+  color: #555;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   10. MANIFESTO
+========================================================= */
+
+.manifesto {
+  min-height: 70vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 20px;
+}
+
+.manifesto h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(48px, 7vw, 100px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  max-width: 1000px;
+}
+
+.manifesto h2 span {
+  color: #999;
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   ONE PIECE. MANY WAYS.
+========================================= */
+
+.one-piece {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 120px 8%;
+
+    background: #f4f2ed;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.one-piece {
+  padding-top: 130px;
+
+  padding-bottom: 130px;
+}
+
+.section-heading {
+  margin-bottom: 65px;
+}
+
+.section-heading h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(48px, 6vw, 80px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+}
+
+.section-heading p {
+  color: #777;
+
+  max-width: 530px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================
+   CLOTHING PIECE SELECTOR
+========================================= */
+
+.piece-selector {
+    display: flex;
+
+    align-items: stretch;
+
+    width: 100%;
+
+    margin-bottom: 60px;
+
+    border-top: 1px solid #cfcfcf;
+
+    border-bottom: 1px solid #cfcfcf;
+}
+
+
+.piece-button {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 22px 25px;
+
+    border: none;
+
+    border-right: 1px solid #cfcfcf;
+
+    background: transparent;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    text-align: left;
+
+    color: #999;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.piece-button:last-child {
+    border-right: none;
+}
+
+
+.piece-button span {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #aaa;
+
+    transition: color 0.3s ease;
+}
+
+
+.piece-button:hover {
+    color: #111;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+.piece-button.active {
+    color: #111;
+
+    background: rgba(255, 255, 255, 0.45);
+}
+
+
+.piece-button.active span {
+    color: #111;
+}
+
+
+/* Active indicator */
+
+.piece-button.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 100%;
+    height: 2px;
+
+    background: #111;
+
+    animation: selectorLine 0.4s ease;
+}
+
+
+@keyframes selectorLine {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   MAIN STYLE AREA
+========================================= */
+
+.style-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    gap: 75px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.style-image-box {
+    position: relative;
+
+    width: 48%;
+
+    height: 650px;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+
+.style-image-box img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.6s ease;
+}
+
+
+/*
+    JavaScript will temporarily add
+    this class when changing images.
+*/
+
+.style-image-box img.changing {
+    opacity: 0;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   IMAGE LABEL
+========================================= */
+
+.image-label {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    padding: 10px 15px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #111;
+}
+
+
+/* =========================================
+   VIEW BUTTON
+========================================= */
+
+.view-btn {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 68px;
+    height: 68px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.view-btn:hover {
+    transform: scale(1.12);
+
+    background: #333;
+}
+
+
+/* =========================================
+   RIGHT SIDE CONTENT
+========================================= */
+
+.style-content {
+    width: 52%;
+}
+
+
+/* =========================================
+   STYLE TABS
+========================================= */
+
+.style-tabs {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 55px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+
+.style-tab {
+    position: relative;
+
+    padding: 0 30px 20px 0;
+
+    margin-right: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #999;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.style-tab:hover {
+    color: #222;
+}
+
+
+.style-tab.active {
+    color: #111;
+}
+
+
+/* Active tab underline */
+
+.style-tab::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -1px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #111;
+
+    transition: width 0.35s ease;
+}
+
+
+.style-tab.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   STYLE INFORMATION
+========================================= */
+
+.style-info {
+    animation: styleTextIn 0.45s ease;
+}
+
+
+@keyframes styleTextIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+.piece-name {
+    margin-bottom: 18px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #999;
+}
+
+
+.style-info h3 {
+    margin: 0 0 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 5vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    color: #111;
+}
+
+
+.style-description {
+    max-width: 520px;
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #666;
+}
+
+
+/* =========================================
+   STYLE TIP
+========================================= */
+
+.style-tip {
+    max-width: 500px;
+
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ccc;
+}
+
+
+.style-tip span {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #999;
+}
+
+
+.style-tip p {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+    color: #333;
+}
+
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
+
+.style-image-box:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .one-piece {
+        padding: 100px 6%;
+    }
+
+
+    .style-wrapper {
+        gap: 45px;
+    }
+
+
+    .style-image-box {
+        height: 560px;
+    }
+
+
+    .piece-button {
+        padding: 20px 15px;
+
+        font-size: 13px;
+    }
+
+
+    .style-tab {
+        margin-right: 20px;
+
+        padding-right: 20px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .one-piece {
+        padding: 80px 6%;
+    }
+
+
+    /* Header */
+
+    .one-piece-header {
+        margin-bottom: 55px;
+    }
+
+
+    .one-piece-header h2 {
+        font-size: 65px;
+
+        letter-spacing: -4px;
+    }
+
+
+    .one-piece-header h2 span {
+        margin-left: 25px;
+    }
+
+
+    /* Piece selector */
+
+    .piece-selector {
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+
+    .piece-selector::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .piece-button {
+        min-width: 150px;
+
+        flex: 0 0 auto;
+    }
+
+
+    /* Main */
+
+    .style-wrapper {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 50px;
+    }
+
+
+    .style-image-box {
+        width: 100%;
+
+        height: 550px;
+    }
+
+
+    .style-content {
+        width: 100%;
+    }
+
+
+    /* Tabs */
+
+    .style-tabs {
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+
+    .style-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .style-tab {
+        flex-shrink: 0;
+
+        white-space: nowrap;
+    }
+
+
+    /* Heading */
+
+    .style-info h3 {
+        font-size: 52px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .one-piece-header h2 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .one-piece-header h2 span {
+        margin-left: 0;
+    }
+
+
+    .section-description {
+        font-size: 15px;
+    }
+
+
+    .style-image-box {
+        height: 460px;
+    }
+
+
+    .style-info h3 {
+        font-size: 45px;
+    }
+
+
+    .style-description {
+        font-size: 15px;
+    }
+
+
+    .view-btn {
+        width: 58px;
+
+        height: 58px;
+    }
+
+}
+
+
+/* =========================================================
+   12. STYLE WITHOUT RULES
+========================================================= */
+
+.rules {
+  background: #e8e4db;
+
+  padding: 140px 0;
+}
+
+.rules-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 60px;
+}
+
+.rules-header h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(48px, 6vw, 80px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+}
+
+.rules-header p {
+  max-width: 350px;
+
+  color: #666;
+}
+
+.rules-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.rule-card {
+  height: 530px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ccc;
+
+  cursor: pointer;
+}
+
+.rule-card img {
+  height: 100%;
+
+  transition:
+    transform 0.8s ease;
+}
+
+.rule-card:hover img {
+  transform: scale(1.07);
+}
+
+.rule-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      transparent 35%,
+      rgba(0, 0, 0, 0.8)
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  padding: 30px;
+
+  color: white;
+}
+
+.rule-number {
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  color: #bbb;
+
+  margin-bottom: 10px;
+}
+
+.rule-overlay h3 {
+  font-family: var(--serif);
+
+  font-size: 34px;
+
+  font-weight: 500;
+}
+
+.rule-overlay p {
+  color: #ccc;
+
+  font-size: 13px;
+
+  margin-top: 8px;
+
+  max-width: 250px;
+}
+
+
+/* =========================================================
+   13. OCCASIONS
+========================================================= */
+
+.occasions {
+  padding: 140px 0;
+}
+
+.occasion-intro {
+  text-align: center;
+
+  margin-bottom: 65px;
+}
+
+.occasion-intro h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(50px, 6vw, 80px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+}
+
+.occasion-intro p {
+  color: #777;
+
+  margin-top: 20px;
+}
+
+.occasion-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.occasion-card {
+  height: 450px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.occasion-card img {
+  height: 100%;
+
+  transition:
+    transform 0.8s ease;
+}
+
+.occasion-card:hover img {
+  transform: scale(1.08);
+}
+
+.occasion-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      transparent 40%,
+      rgba(0, 0, 0, 0.75)
+    );
+}
+
+.occasion-content {
+  position: absolute;
+
+  z-index: 2;
+
+  bottom: 25px;
+
+  left: 22px;
+
+  color: white;
+}
+
+.occasion-content span {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #ccc;
+}
+
+.occasion-content h3 {
+  font-family: var(--serif);
+
+  font-size: 31px;
+
+  font-weight: 500;
+
+  margin-top: 4px;
+}
+
+
+/* =========================================================
+   14. STYLE ME
+========================================================= */
+
+.style-section {
+  background: #111;
+
+  color: white;
+
+  padding: 150px 0;
+
+  text-align: center;
+}
+
+.style-section .eyebrow {
+  color: #777;
+}
+
+.style-section h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(60px, 8vw, 110px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  margin-top: 15px;
+}
+
+.style-section h2 em {
+  color: #888;
+}
+
+.style-section > .container > p {
+  max-width: 550px;
+
+  color: #999;
+
+  margin: 30px auto;
+}
+
+
+/* STYLE TOOL */
+
+.style-tool {
+  max-width: 950px;
+
+  margin: 70px auto 0;
+
+  background: #181818;
+
+  border: 1px solid #2c2c2c;
+
+  padding: 55px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Progress */
+
+.style-progress {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 60px;
+}
+
+.progress-step {
+  width: 38px;
+
+  height: 38px;
+
+  border: 1px solid #444;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 10px;
+
+  color: #666;
+
+  transition: 0.4s;
+}
+
+.progress-step.active {
+  background: white;
+
+  border-color: white;
+
+  color: #111;
+}
+
+.progress-line {
+  width: 70px;
+
+  height: 1px;
+
+  background: #333;
+}
+
+
+/* Steps */
+
+.style-step {
+  display: none;
+
+  text-align: center;
+
+  animation:
+    stepEnter 0.6s ease;
+}
+
+.style-step.active {
+  display: block;
+}
+
+@keyframes stepEnter {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+.style-step-number {
+  color: #666;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 15px;
+}
+
+.style-step h3 {
+  font-family: var(--serif);
+
+  font-size: 42px;
+
+  font-weight: 500;
+}
+
+.style-step p {
+  color: #777;
+
+  margin: 10px auto 40px;
+}
+
+
+/* Options */
+
+.style-options {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.style-option {
+  background: transparent;
+
+  border: 1px solid #333;
+
+  color: #ddd;
+
+  padding: 25px;
+
+  text-align: left;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  transition: 0.35s;
+}
+
+.style-option span {
+  color: #666;
+
+  font-size: 10px;
+}
+
+.style-option:hover {
+  background: white;
+
+  color: #111;
+
+  border-color: white;
+
+  transform: translateY(-3px);
+}
+
+.style-option.selected {
+  background: white;
+
+  color: #111;
+
+  border-color: white;
+}
+
+
+/* Generating */
+
+.style-generating {
+  display: none;
+
+  text-align: center;
+
+  padding: 80px 20px;
+}
+
+.style-generating.active {
+  display: block;
+}
+
+.generating-symbol {
+  font-size: 45px;
+
+  animation:
+    spinSymbol 1.5s linear infinite;
+
+  margin-bottom: 20px;
+}
+
+@keyframes spinSymbol {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.generating-bar {
+  height: 2px;
+
+  background: #333;
+
+  max-width: 400px;
+
+  margin: 25px auto;
+
+  overflow: hidden;
+}
+
+.generating-bar span {
+  display: block;
+
+  height: 100%;
+
+  width: 0;
+
+  background: white;
+
+  transition:
+    width 2.5s ease;
+}
+
+.generating-status {
+  font-size: 10px;
+
+  color: #777;
+
+  letter-spacing: 1px;
+}
+
+
+/* Result */
+
+.style-result {
+  display: none;
+
+  animation:
+    resultReveal 1s ease;
+}
+
+.style-result.active {
+  display: block;
+}
+
+@keyframes resultReveal {
+
+  from {
+    opacity: 0;
+
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+.result-label {
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  color: #777;
+
+  margin-bottom: 10px;
+}
+
+.style-result h3 {
+  font-family: var(--serif);
+
+  font-size: 48px;
+
+  font-weight: 500;
+}
+
+.style-result > p {
+  color: #888;
+
+  max-width: 500px;
+
+  margin: 10px 0 35px;
+}
+
+.result-outfit {
+  display: grid;
+
+  grid-template-columns: 1fr 0.7fr;
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+.result-image {
+  height: 420px;
+
+  overflow: hidden;
+}
+
+.result-image img {
+  height: 100%;
+
+  transition:
+    transform 1s ease;
+}
+
+.result-image:hover img {
+  transform: scale(1.05);
+}
+
+.result-details {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.result-item {
+  border-top: 1px solid #333;
+
+  padding: 20px 0;
+}
+
+.result-item span {
+  display: block;
+
+  color: #666;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 6px;
+}
+
+.result-item strong {
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   15. STYLE DNA
+========================================================= */
+
+.dna {
+  padding: 140px 0;
+}
+
+.dna-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.dna-image {
+  height: 620px;
+
+  overflow: hidden;
+}
+
+.dna-image img {
+  height: 100%;
+
+  transition:
+    transform 1s ease;
+}
+
+.dna-image:hover img {
+  transform: scale(1.04);
+}
+
+.dna-content h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(50px, 6vw, 80px);
+
+  line-height: 0.92;
+
+  font-weight: 500;
+}
+
+.dna-content h2 em {
+  color: #888;
+}
+
+.dna-content p {
+  max-width: 500px;
+
+  color: #666;
+
+  margin: 25px 0 30px;
+}
+
+.dna-features {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 35px;
+}
+
+.dna-feature {
+  border-top: 1px solid #ccc;
+
+  padding-top: 15px;
+
+  font-size: 12px;
+}
+
+.dna-feature span {
+  display: block;
+
+  color: #999;
+
+  font-size: 10px;
+
+  margin-bottom: 5px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   16. STYLE DNA MODAL
+========================================================= */
+
+.dna-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 5000;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.dna-modal.active {
+  display: flex;
+}
+
+.dna-modal-box {
+  width: min(700px, 100%);
+
+  background: #f7f5f0;
+
+  color: #111;
+
+  padding: 65px;
+
+  position: relative;
+
+  animation:
+    dnaOpen 0.5s ease;
+}
+
+@keyframes dnaOpen {
+
+  from {
+    opacity: 0;
+
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+.dna-close {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 30px;
+
+  color: #777;
+}
+
+.dna-modal-step {
+  display: none;
+
+  text-align: center;
+}
+
+.dna-modal-step.active {
+  display: block;
+
+  animation:
+    stepEnter 0.5s ease;
+}
+
+.dna-modal-step h2 {
+  font-family: var(--serif);
+
+  font-size: 42px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  margin: 15px auto 40px;
+
+  max-width: 550px;
+}
+
+.dna-options {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 10px;
+}
+
+.dna-options button {
+  background: transparent;
+
+  border: 1px solid #ccc;
+
+  padding: 20px;
+
+  transition: 0.3s;
+}
+
+.dna-options button:hover {
+  background: #111;
+
+  color: white;
+
+  border-color: #111;
+
+  transform: translateY(-2px);
+}
+
+.dna-final {
+  display: none;
+
+  text-align: center;
+}
+
+.dna-final.active {
+  display: block;
+
+  animation:
+    resultReveal 0.8s ease;
+}
+
+.dna-final h2 {
+  font-family: var(--serif);
+
+  font-size: 50px;
+
+  font-weight: 500;
+
+  margin: 15px 0;
+}
+
+.dna-final p {
+  color: #666;
+
+  max-width: 450px;
+
+  margin: auto;
+}
+
+.dna-bars {
+  max-width: 450px;
+
+  margin: 40px auto;
+
+  text-align: left;
+}
+
+.dna-bars > div {
+  margin-bottom: 20px;
+}
+
+.dna-bars span {
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.dna-bar {
+  height: 4px;
+
+  background: #ddd;
+
+  margin-top: 8px;
+
+  overflow: hidden;
+}
+
+.dna-bar span {
+  display: block;
+
+  height: 100%;
+
+  width: 0;
+
+  background: #111;
+
+  transition:
+    width 1.4s ease;
+}
+
+
+/* =========================================================
+   17. PHILOSOPHY
+========================================================= */
+
+.philosophy {
+  background: #e8e4db;
+
+  padding: 150px 0;
+
+  text-align: center;
+}
+
+.philosophy h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(55px, 8vw, 110px);
+
+  line-height: 0.88;
+
+  font-weight: 500;
+
+  max-width: 1050px;
+
+  margin: auto;
+}
+
+.philosophy h2 span {
+  color: #888;
+
+  font-style: italic;
+}
+
+.philosophy-copy {
+  max-width: 520px;
+
+  margin: 40px auto 0;
+
+  color: #666;
+}
+
+.philosophy-line {
+  width: 1px;
+
+  height: 100px;
+
+  background: #bbb;
+
+  margin: 50px auto;
+}
+
+
+/* =========================================================
+   18. FINAL CTA
+========================================================= */
+
+.final-cta {
+  background: #111;
+
+  color: white;
+
+  padding: 160px 20px;
+
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(55px, 8vw, 110px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.final-cta h2 em {
+  color: #777;
+}
+
+.final-cta p {
+  color: #999;
+
+  margin: 30px auto;
+
+  max-width: 450px;
+}
+
+
+/* =========================================================
+   19. FOOTER
+========================================================= */
+
+footer {
+  background: #111;
+
+  color: #777;
+
+  border-top: 1px solid #2b2b2b;
+
+  padding: 35px 0;
+}
+
+.footer-container {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.footer-logo {
+  color: white;
+
+  font-weight: 700;
+
+  letter-spacing: 5px;
+}
+
+.footer-text {
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   20. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 110px;
+  }
+
+  .hero-visual {
+    height: 600px;
+  }
+
+  .problem-grid,
+  .piece-layout,
+  .dna-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .occasion-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rules-header {
+    display: block;
+  }
+
+  .rules-header p {
+    margin-top: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   21. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .hero {
+    padding-top: 105px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-visual {
+    height: 500px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    text-align: center;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .problem {
+    padding: 100px 0;
+  }
+
+  .rules-grid,
+  .occasion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rule-card,
+  .occasion-card {
+    height: 500px;
+  }
+
+  .piece-image,
+  .dna-image {
+    height: 500px;
+  }
+
+  .style-tool {
+    padding: 35px 20px;
+  }
+
+  .style-options {
+    grid-template-columns: 1fr;
+  }
+
+  .style-step h3 {
+    font-size: 34px;
+  }
+
+  .result-outfit {
+    grid-template-columns: 1fr;
+  }
+
+  .result-image {
+    height: 400px;
+  }
+
+  .dna-features {
+    grid-template-columns: 1fr;
+  }
+
+  .dna-modal-box {
+    padding: 50px 25px;
+  }
+
+  .dna-modal-step h2 {
+    font-size: 34px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+}
