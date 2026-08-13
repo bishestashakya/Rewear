@@ -1,5 +1,5 @@
 /* =========================================================
-01. PAGE LOADER
+   01. PAGE LOADER
 ========================================================= */
 
 window.addEventListener("load", () => {
@@ -71,11 +71,6 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
-
-/* =========================================================
-   ONE PIECE. MANY WAYS.
-   SIERRA SHOWCASE
-========================================================= */
 
 /* =========================================
    CLOTHING DATA
