@@ -387,8 +387,8 @@ a {
 
 .secondary-btn {
   background: transparent;
-  color: #e8dfd2;
-  border: 1px solid #e8dfd2;
+  color: #d6d6d6;
+  border: 1px solid #d6d6d6;
 
   padding: 15px 27px;
 
@@ -403,9 +403,9 @@ a {
 }
 
 .secondary-btn:hover {
-  background: #e8dfd2;
+  background: #d6d6d6;
   color: #111;
-  border-color: #e8dfd2;
+  border-color: #d6d6d6;
 }
 
 
